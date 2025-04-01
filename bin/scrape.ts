@@ -8,6 +8,8 @@ axios.defaults.baseURL = 'https://bg3.wiki';
 const rarities = [ 'Common', 'Uncommon', 'Rare', 'Very rare', 'Legendary' ] as const;
 type Rarity = typeof rarities[number];
 
+const items: string[] = [];
+
 type EquipmentType = {
     name: string;
     url: string;
@@ -56,10 +58,12 @@ async function parseItem($: cheerio.Root, elem: cheerio.Cheerio, type: string): 
     const thumbnail = $('img', elem);
 
     const url = link.attr('href');
-    if (!url) {
+    if (!url || items.includes(url)) {
         return;
     }
-
+    
+    items.push(url);
+    
     const item: Item = {
         name: link.text().trim(),
         url,
@@ -135,8 +139,14 @@ async function parseThumbnail(src: string, basePath: string): Promise<string> {
     return fullPath;
 }
 
-const equipment = await parseEquipment();
+if (fs.existsSync('src/data/equipment.json')) {
+    fs.rmSync('src/data/equipment.json');
+}
+if (fs.existsSync('public/thumbs')) {
+    fs.rmSync('public/thumbs', {recursive: true});
+}
 
+const equipment = await parseEquipment();
 fs.writeFileSync('src/data/equipment.json', JSON.stringify(equipment, null, 2));
 
 console.log('done');

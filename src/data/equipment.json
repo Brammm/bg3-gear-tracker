@@ -46,46 +46,16 @@
         "thumbnail": "public/thumbs/Amulets/50px-Dog_Collar_A_Unfaded_Icon.png"
       },
       {
-        "name": "Dog Collar",
-        "url": "/wiki/Dog_Collar",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Dog_Collar_Unfaded_Icon.png"
-      },
-      {
         "name": "Gold Necklace",
         "url": "/wiki/Gold_Necklace",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_B_Gold_A_Unfaded_Icon.png"
       },
       {
-        "name": "Gold Necklace",
-        "url": "/wiki/Gold_Necklace",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_B_Gold_A_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Gold Pendant",
         "url": "/wiki/Gold_Pendant",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_A_Gold_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Pendant",
-        "url": "/wiki/Gold_Pendant",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_A_Gold_A_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Pendant",
-        "url": "/wiki/Gold_Pendant",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_D_Gold_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Pendant",
-        "url": "/wiki/Gold_Pendant",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_D_Gold_A_1_Unfaded_Icon.png"
       },
       {
         "name": "Gordis' Dog Collar",
@@ -100,58 +70,10 @@
         "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_E_Pearl_A_Unfaded_Icon.png"
       },
       {
-        "name": "Pearl Necklace",
-        "url": "/wiki/Pearl_Necklace",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_E_Pearl_B_Unfaded_Icon.png"
-      },
-      {
-        "name": "Pearl Necklace",
-        "url": "/wiki/Pearl_Necklace",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Item_LOOT_GEN_Amulet_Necklace_E_Pearl_C_Unfaded_Icon.png"
-      },
-      {
-        "name": "Pearl Necklace",
-        "url": "/wiki/Pearl_Necklace",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_E_Pearl_A_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Polished Necklace",
         "url": "/wiki/Polished_Necklace",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_F_Gold_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Polished Necklace",
-        "url": "/wiki/Polished_Necklace",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_F_Gold_A_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Polished Necklace",
-        "url": "/wiki/Polished_Necklace",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_F_Silver_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Polished Necklace",
-        "url": "/wiki/Polished_Necklace",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_F_Silver_A_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Polished Necklace",
-        "url": "/wiki/Polished_Necklace",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_F_Bronze_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Polished Necklace",
-        "url": "/wiki/Polished_Necklace",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_F_Bronze_A_1_Unfaded_Icon.png"
       },
       {
         "name": "Rocky's Dog Collar",
@@ -172,18 +94,6 @@
         "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_A_Silver_A_Unfaded_Icon.png"
       },
       {
-        "name": "Silver Amulet",
-        "url": "/wiki/Silver_Amulet",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_A_Silver_A_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Silver Amulet",
-        "url": "/wiki/Silver_Amulet",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_A_Silver_A_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Silver Locket",
         "url": "/wiki/Silver_Locket",
         "rarity": "Common",
@@ -196,12 +106,6 @@
         "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_B_Silver_A_Unfaded_Icon.png"
       },
       {
-        "name": "Silver Necklace",
-        "url": "/wiki/Silver_Necklace",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_B_Silver_A_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Tarnished Locket",
         "url": "/wiki/Tarnished_Locket",
         "rarity": "Common",
@@ -212,12 +116,6 @@
         "url": "/wiki/Tarnished_Pendant",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_A_Bronze_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Tarnished Pendant",
-        "url": "/wiki/Tarnished_Pendant",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Amulets/50px-Amulet_Necklace_A_Bronze_A_1_Unfaded_Icon.png"
       },
       {
         "name": "Zina's Dog Collar",
@@ -569,12 +467,6 @@
         "thumbnail": "public/thumbs/Armour/50px-Druid_Leather_Armour_Unfaded_Icon.png"
       },
       {
-        "name": "Druid Leather Armour",
-        "url": "/wiki/Druid_Leather_Armour",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Armour/50px-Druid_Leather_Armour_Unfaded_Icon.png"
-      },
-      {
         "name": "Faded Drow Leather Armour",
         "url": "/wiki/Faded_Drow_Leather_Armour",
         "rarity": "Common",
@@ -587,46 +479,10 @@
         "thumbnail": "public/thumbs/Armour/50px-Leather_Armour_3_Unfaded_Icon.png"
       },
       {
-        "name": "Leather Armour",
-        "url": "/wiki/Leather_Armour",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Armour/50px-Leather_Armour_Rogue_Unfaded_Icon.png"
-      },
-      {
-        "name": "Leather Armour",
-        "url": "/wiki/Leather_Armour",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Armour/50px-Leather_Armour_Jaheria_Unfaded_Icon.webp.png"
-      },
-      {
-        "name": "Leather Armour",
-        "url": "/wiki/Leather_Armour",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Armour/50px-Leather_Armour_Minsc_Unfaded_Icon.png"
-      },
-      {
-        "name": "Leather Armour",
-        "url": "/wiki/Leather_Armour",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Armour/50px-Leather_Armour_3_Unfaded_Icon.png"
-      },
-      {
         "name": "Padded Armour",
         "url": "/wiki/Padded_Armour",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Armour/50px-Padded_Armour_3_Unfaded_Icon.png"
-      },
-      {
-        "name": "Padded Armour",
-        "url": "/wiki/Padded_Armour",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Armour/50px-Padded_Armour_%28Astarion%29_Unfaded_Icon.png"
-      },
-      {
-        "name": "Padded Armour",
-        "url": "/wiki/Padded_Armour",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Armour/50px-Padded_Armour_BG_Watch_Unfaded_Icon.png"
       },
       {
         "name": "Selûnite Robe",
@@ -767,12 +623,6 @@
         "thumbnail": "public/thumbs/Armour/50px-Chain_Shirt_3_Unfaded_Icon.png"
       },
       {
-        "name": "Chain Shirt",
-        "url": "/wiki/Chain_Shirt",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Armour/50px-Chain_Shirt_Shadowheart_Unfaded_Icon.png"
-      },
-      {
         "name": "Damaged Dark Justiciar Armour",
         "url": "/wiki/Damaged_Dark_Justiciar_Armour",
         "rarity": "Common",
@@ -801,18 +651,6 @@
         "url": "/wiki/Half_Plate_Armour",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Armour/50px-Half_Plate_Unfaded_Icon.png"
-      },
-      {
-        "name": "Half Plate Armour",
-        "url": "/wiki/Half_Plate_Armour",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Armour/50px-Half_Plate_Armour_Flaming_Fist_Unfaded_Icon.png"
-      },
-      {
-        "name": "Half Plate Armour",
-        "url": "/wiki/Half_Plate_Armour",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Armour/50px-Half_Plate_Armour_Flaming_Fist_B_Unfaded_Icon.png"
       },
       {
         "name": "Hide Armour",
@@ -867,12 +705,6 @@
         "url": "/wiki/Half_Plate_Armour_%2B1",
         "rarity": "Uncommon",
         "thumbnail": "public/thumbs/Armour/50px-Half_Plate_PlusOne_Unfaded_Icon.png"
-      },
-      {
-        "name": "Half Plate Armour +1",
-        "url": "/wiki/Half_Plate_Armour_%2B1",
-        "rarity": "Uncommon",
-        "thumbnail": "public/thumbs/Armour/50px-Armour_of_Agility_Unfaded_Icon.png"
       },
       {
         "name": "Hedge Wanderer Armour",
@@ -1176,18 +1008,6 @@
         "thumbnail": "public/thumbs/Cloaks/50px-Cloak_Unfaded_Icon.png"
       },
       {
-        "name": "Cloak",
-        "url": "/wiki/Cloak",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Cloaks/50px-Cloak_Long_C_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Cloak",
-        "url": "/wiki/Cloak",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Cloaks/50px-Cloak_B_Unfaded_Icon.png"
-      },
-      {
         "name": "Cindermoth Cloak",
         "url": "/wiki/Cindermoth_Cloak",
         "rarity": "Uncommon",
@@ -1297,12 +1117,6 @@
         "thumbnail": "public/thumbs/Clothing/50px-Barbarian_Clothes_Unfaded_Icon.png"
       },
       {
-        "name": "Barbarian Clothes",
-        "url": "/wiki/Barbarian_Clothes",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Clothing/50px-Barbarian_Clothes_Karlach_Unfaded_Icon.png"
-      },
-      {
         "name": "Clothes",
         "url": "/wiki/Clothes",
         "rarity": "Common",
@@ -1321,46 +1135,10 @@
         "thumbnail": "public/thumbs/Clothing/50px-Robe_B_Unfaded_Icon.png"
       },
       {
-        "name": "Robe",
-        "url": "/wiki/Robe",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Clothing/50px-Robe_B_2_Unfaded_Icon.png"
-      },
-      {
-        "name": "Robe",
-        "url": "/wiki/Robe",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Clothing/50px-Robe_D_Unfaded_Icon.png"
-      },
-      {
-        "name": "Robe",
-        "url": "/wiki/Robe",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Clothing/50px-Robe_E_Unfaded_Icon.png"
-      },
-      {
         "name": "Simple Robe",
         "url": "/wiki/Simple_Robe",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Clothing/50px-Simple_Robe_Unfaded_Icon.png"
-      },
-      {
-        "name": "Simple Robe",
-        "url": "/wiki/Simple_Robe",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Clothing/50px-Simple_Robe_Unfaded_Icon.png"
-      },
-      {
-        "name": "Sorcerer Robe",
-        "url": "/wiki/Sorcerer_Robe",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Clothing/50px-Sorcerer_Robe_Unfaded_Icon.png"
-      },
-      {
-        "name": "Sorcerer Robe",
-        "url": "/wiki/Sorcerer_Robe",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Clothing/50px-Sorcerer_Robe_Unfaded_Icon.png"
       },
       {
         "name": "Sorcerer Robe",
@@ -1578,12 +1356,6 @@
         "url": "/wiki/Hardily_Constructed_Boots",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Footwear/50px-Shoes_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Heavy Boots",
-        "url": "/wiki/Heavy_Boots",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Footwear/50px-Heavy_Boots_Unfaded_Icon.png"
       },
       {
         "name": "Heavy Boots",
@@ -1868,36 +1640,6 @@
         "thumbnail": "public/thumbs/Footwear/50px-Boots_Metal_Unfaded_Icon.png"
       },
       {
-        "name": "Metallic Boots",
-        "url": "/wiki/Metallic_Boots",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Footwear/50px-Boots_Metal_B_Unfaded_Icon.png"
-      },
-      {
-        "name": "Metallic Boots",
-        "url": "/wiki/Metallic_Boots",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Footwear/50px-Boots_Metal_C_Unfaded_Icon.png"
-      },
-      {
-        "name": "Metallic Boots",
-        "url": "/wiki/Metallic_Boots",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Footwear/50px-Boots_Metal_D_Unfaded_Icon.png"
-      },
-      {
-        "name": "Metallic Boots",
-        "url": "/wiki/Metallic_Boots",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Footwear/50px-Boots_Metal_E_Unfaded_Icon.png"
-      },
-      {
-        "name": "Metallic Boots",
-        "url": "/wiki/Metallic_Boots",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Footwear/50px-Boots_Metal_F_Unfaded_Icon.png"
-      },
-      {
         "name": "Oathbreaker Knight Boots",
         "url": "/wiki/Oathbreaker_Knight_Boots",
         "rarity": "Common",
@@ -1983,12 +1725,6 @@
         "thumbnail": "public/thumbs/Handwear/50px-Gloves_Monk_Unfaded_Icon.png"
       },
       {
-        "name": "Gloves (Equipment)",
-        "url": "/wiki/Gloves_(Equipment)",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Handwear/50px-Gloves_Hide_Unfaded_Icon.png"
-      },
-      {
         "name": "Leather Bracers",
         "url": "/wiki/Leather_Bracers",
         "rarity": "Common",
@@ -1999,42 +1735,6 @@
         "url": "/wiki/Leather_Gloves",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Handwear/50px-Gloves_Leather_D_Unfaded_Icon.png"
-      },
-      {
-        "name": "Leather Gloves",
-        "url": "/wiki/Leather_Gloves",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Handwear/50px-Gloves_Leather_I_Unfaded_Icon.png"
-      },
-      {
-        "name": "Leather Gloves",
-        "url": "/wiki/Leather_Gloves",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Handwear/50px-Gloves_Leather_3_Unfaded_Icon.png"
-      },
-      {
-        "name": "Leather Gloves",
-        "url": "/wiki/Leather_Gloves",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Handwear/50px-Gloves_Leather_3_Unfaded_Icon.png"
-      },
-      {
-        "name": "Leather Gloves",
-        "url": "/wiki/Leather_Gloves",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Handwear/50px-Bracers_Barbarian_Unfaded_Icon.png"
-      },
-      {
-        "name": "Leather Gloves",
-        "url": "/wiki/Leather_Gloves",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Handwear/50px-Gloves_Leather_F_Unfaded_Icon.png"
-      },
-      {
-        "name": "Leather Gloves",
-        "url": "/wiki/Leather_Gloves",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Handwear/50px-Gloves_Leather_G_Unfaded_Icon.png"
       },
       {
         "name": "Nettie's Gloves",
@@ -2794,12 +2494,6 @@
         "thumbnail": "public/thumbs/Headwear/50px-Mask_of_the_Shapeshifter_Unfaded_Icon.png"
       },
       {
-        "name": "Key of the Ancients",
-        "url": "/wiki/Key_of_the_Ancients",
-        "rarity": "Story Item",
-        "thumbnail": "public/thumbs/Headwear/50px-Key_of_the_Ancients_Unfaded_Icon.png"
-      },
-      {
         "name": "Angelic Plume Helmet",
         "url": "/wiki/Angelic_Plume_Helmet",
         "rarity": "Common",
@@ -2914,18 +2608,6 @@
         "thumbnail": "public/thumbs/Headwear/50px-Flaming_Fist_Helmet_A_Unfaded_Icon.png"
       },
       {
-        "name": "Flaming Fist Helmet",
-        "url": "/wiki/Flaming_Fist_Helmet",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Headwear/50px-Flaming_Fist_Helmet_B_Unfaded_Icon.png"
-      },
-      {
-        "name": "Flaming Fist Helmet",
-        "url": "/wiki/Flaming_Fist_Helmet",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Headwear/50px-Flaming_Fist_Helmet_Unfaded_Icon.png"
-      },
-      {
         "name": "Formidable Helmet",
         "url": "/wiki/Formidable_Helmet",
         "rarity": "Common",
@@ -2942,12 +2624,6 @@
         "url": "/wiki/Helmet",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Headwear/50px-Metal_Helmet_Unfaded_Icon.png"
-      },
-      {
-        "name": "Helmet",
-        "url": "/wiki/Helmet",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Headwear/50px-Item_ARM_Shar_Crown_B_Broken_Unfaded_Icon.png"
       },
       {
         "name": "Regal Helm",
@@ -3120,24 +2796,6 @@
         "thumbnail": "public/thumbs/Rings/50px-Ring_D_Silver_A_Unfaded_Icon.png"
       },
       {
-        "name": "Amethyst Ring",
-        "url": "/wiki/Amethyst_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_D_Silver_A_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Amethyst Ring",
-        "url": "/wiki/Amethyst_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_D_Gold_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Amethyst Ring",
-        "url": "/wiki/Amethyst_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_D_Gold_A_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Bloody Signet Ring",
         "url": "/wiki/Bloody_Signet_Ring",
         "rarity": "Common",
@@ -3150,22 +2808,10 @@
         "thumbnail": "public/thumbs/Rings/50px-Ring_D_Unfaded_Icon.png"
       },
       {
-        "name": "Bronze Ring",
-        "url": "/wiki/Bronze_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_F_Unfaded_Icon.png"
-      },
-      {
         "name": "Carnelian Ring",
         "url": "/wiki/Carnelian_Ring",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Rings/50px-Ring_C_Unfaded_Icon.png"
-      },
-      {
-        "name": "Carnelian Ring",
-        "url": "/wiki/Carnelian_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_C_1_Unfaded_Icon.png"
       },
       {
         "name": "Copper Band",
@@ -3174,22 +2820,10 @@
         "thumbnail": "public/thumbs/Rings/50px-Ring_G_Unfaded_Icon.png"
       },
       {
-        "name": "Copper Band",
-        "url": "/wiki/Copper_Band",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_G_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Copper Ring",
         "url": "/wiki/Copper_Ring",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Rings/50px-Ring_E_Unfaded_Icon.png"
-      },
-      {
-        "name": "Copper Ring",
-        "url": "/wiki/Copper_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_E_1_Unfaded_Icon.png"
       },
       {
         "name": "Dark Ring",
@@ -3210,82 +2844,10 @@
         "thumbnail": "public/thumbs/Rings/50px-Ring_B_Unfaded_Icon.png"
       },
       {
-        "name": "Emerald Ring",
-        "url": "/wiki/Emerald_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_B_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Garnet Ring",
         "url": "/wiki/Garnet_Ring",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Rings/50px-Ring_H_Unfaded_Icon.png"
-      },
-      {
-        "name": "Garnet Ring",
-        "url": "/wiki/Garnet_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_H_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Garnet Ring",
-        "url": "/wiki/Garnet_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_H_Gold_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Garnet Ring",
-        "url": "/wiki/Garnet_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_H_Gold_A_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Garnet Ring",
-        "url": "/wiki/Garnet_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_B_Gem_A_Gold_Unfaded_Icon.png"
-      },
-      {
-        "name": "Garnet Ring",
-        "url": "/wiki/Garnet_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_B_Gem_A_Gold_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Garnet Ring",
-        "url": "/wiki/Garnet_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_H_Unfaded_Icon.png"
-      },
-      {
-        "name": "Garnet Ring",
-        "url": "/wiki/Garnet_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_H_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Garnet Ring",
-        "url": "/wiki/Garnet_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_H_Gold_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Garnet Ring",
-        "url": "/wiki/Garnet_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_H_Gold_A_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Garnet Ring",
-        "url": "/wiki/Garnet_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_B_Gem_A_Gold_Unfaded_Icon.png"
-      },
-      {
-        "name": "Garnet Ring",
-        "url": "/wiki/Garnet_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_B_Gem_A_Gold_1_Unfaded_Icon.png"
       },
       {
         "name": "Gold Band",
@@ -3294,76 +2856,10 @@
         "thumbnail": "public/thumbs/Rings/50px-Ring_G_Gold_A_Unfaded_Icon.png"
       },
       {
-        "name": "Gold Band",
-        "url": "/wiki/Gold_Band",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_G_Gold_A_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Gold Ring",
         "url": "/wiki/Gold_Ring",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Rings/50px-Ring_A_Gem_A_Gold_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Ring",
-        "url": "/wiki/Gold_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_A_Gem_A_Gold_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Ring",
-        "url": "/wiki/Gold_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_B_Gem_B_Gold_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Ring",
-        "url": "/wiki/Gold_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_B_Gem_B_Gold_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Ring",
-        "url": "/wiki/Gold_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_B_Gem_A_Gold_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Ring",
-        "url": "/wiki/Gold_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_B_Gem_A_Gold_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Ring",
-        "url": "/wiki/Gold_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_C_Gold_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Ring",
-        "url": "/wiki/Gold_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_C_Gold_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Ring",
-        "url": "/wiki/Gold_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_C_Gold_A_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Ring",
-        "url": "/wiki/Gold_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_E_Gold_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Gold Ring",
-        "url": "/wiki/Gold_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_E_Gold_A_1_Unfaded_Icon.png"
       },
       {
         "name": "Onyx Ring",
@@ -3372,34 +2868,16 @@
         "thumbnail": "public/thumbs/Rings/50px-Ring_I_Silver_A_Unfaded_Icon.png"
       },
       {
-        "name": "Onyx Ring",
-        "url": "/wiki/Onyx_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_I_Silver_A_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Peridot Ring",
         "url": "/wiki/Peridot_Ring",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Rings/50px-Ring_B_Silver_A_Unfaded_Icon.png"
       },
       {
-        "name": "Peridot Ring",
-        "url": "/wiki/Peridot_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_B_Silver_A_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Polished Ring",
         "url": "/wiki/Polished_Ring",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Rings/50px-Ring_E_Silver_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Polished Ring",
-        "url": "/wiki/Polished_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_E_Silver_A_1_Unfaded_Icon.png"
       },
       {
         "name": "Ring of Being Really Invisible",
@@ -3438,40 +2916,10 @@
         "thumbnail": "public/thumbs/Rings/50px-Ring_C_Silver_A_Unfaded_Icon.png"
       },
       {
-        "name": "Ruby Ring",
-        "url": "/wiki/Ruby_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_C_Silver_A_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Ruby Ring",
-        "url": "/wiki/Ruby_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_H_Silver_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Ruby Ring",
-        "url": "/wiki/Ruby_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_H_Silver_A_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Silver Band",
         "url": "/wiki/Silver_Band",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Rings/50px-Ring_G_Silver_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Silver Band",
-        "url": "/wiki/Silver_Band",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_G_Silver_A_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Tarnished Ring",
-        "url": "/wiki/Tarnished_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_A_Simple_Gold_Unfaded_Icon.png"
       },
       {
         "name": "Tarnished Ring",
@@ -3492,34 +2940,10 @@
         "thumbnail": "public/thumbs/Rings/50px-Ring_F_Silver_A_Unfaded_Icon.png"
       },
       {
-        "name": "Tourmaline Ring",
-        "url": "/wiki/Tourmaline_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_F_Silver_A_1_Unfaded_Icon.png"
-      },
-      {
-        "name": "Tourmaline Ring",
-        "url": "/wiki/Tourmaline_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_F_Gold_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Tourmaline Ring",
-        "url": "/wiki/Tourmaline_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_F_Gold_A_1_Unfaded_Icon.png"
-      },
-      {
         "name": "Verdelite Ring",
         "url": "/wiki/Verdelite_Ring",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Rings/50px-Ring_B_Gold_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Verdelite Ring",
-        "url": "/wiki/Verdelite_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_B_Gold_A_1_Unfaded_Icon.png"
       },
       {
         "name": "Bracing Band",
@@ -3720,12 +3144,6 @@
         "thumbnail": "public/thumbs/Rings/50px-Ring_H_Silver_A_1_Unfaded_Icon.png"
       },
       {
-        "name": "Tarnished Ring",
-        "url": "/wiki/Tarnished_Ring",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Rings/50px-Ring_A_Simple_Gold_Unfaded_Icon.png"
-      },
-      {
         "name": "The Sparkswall",
         "url": "/wiki/The_Sparkswall",
         "rarity": "Uncommon",
@@ -3894,12 +3312,6 @@
         "thumbnail": "public/thumbs/Rings/50px-Ring_D_Gold_A_1_Unfaded_Icon.png"
       },
       {
-        "name": "Guild Ring",
-        "url": "/wiki/Guild_Ring",
-        "rarity": "Story Item",
-        "thumbnail": "public/thumbs/Rings/50px-Guild_Ring_Unfaded_Icon.png"
-      },
-      {
         "name": "Szarr Family Ring",
         "url": "/wiki/Szarr_Family_Ring",
         "rarity": "Story Item",
@@ -3955,34 +3367,10 @@
         "thumbnail": "public/thumbs/Shields/50px-Scrapwood_Shield_Unfaded_Icon.png"
       },
       {
-        "name": "Scrapwood Shield",
-        "url": "/wiki/Scrapwood_Shield",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Shields/50px-Scrapwood_Shield_A_Unfaded_Icon.png"
-      },
-      {
-        "name": "Scrapwood Shield",
-        "url": "/wiki/Scrapwood_Shield",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Shields/50px-Scrapwood_Shield_E_Unfaded_Icon.png"
-      },
-      {
         "name": "Shield",
         "url": "/wiki/Shield",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Shields/50px-Item_WPN_HUM_Shield_D_0_Unfaded_Icon.png"
-      },
-      {
-        "name": "Shield",
-        "url": "/wiki/Shield",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Shields/50px-Item_WPN_HUM_Shield_E_2_Unfaded_Icon.png"
-      },
-      {
-        "name": "Shield",
-        "url": "/wiki/Shield",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Shields/50px-Item_WPN_HUM_Shield_Deathknight_Unfaded_Icon.webp.png"
       },
       {
         "name": "Spiked Shield",
@@ -4007,18 +3395,6 @@
         "url": "/wiki/Wooden_Shield",
         "rarity": "Common",
         "thumbnail": "public/thumbs/Shields/50px-Wooden_Shield_Unfaded_Icon.png"
-      },
-      {
-        "name": "Wooden Shield",
-        "url": "/wiki/Wooden_Shield",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Shields/50px-Wooden_Shield_B_Unfaded_Icon.png"
-      },
-      {
-        "name": "Wooden Shield",
-        "url": "/wiki/Wooden_Shield",
-        "rarity": "Common",
-        "thumbnail": "public/thumbs/Shields/50px-Swires_sledboard_Unfaded_Icon.png"
       },
       {
         "name": "Absolute's Warboard",
