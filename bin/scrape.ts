@@ -69,7 +69,7 @@ async function parseItem($: cheerio.Root, elem: cheerio.Cheerio, type: string): 
     // download thumbnail
     const src = thumbnail.attr('src');
     if (src) {
-        item.thumbnail = await parseThumbnail(src, 'thumbs/' + type);
+        item.thumbnail = await parseThumbnail(src, 'public/thumbs/' + type);
     }
 
     return item;
@@ -109,7 +109,7 @@ async function parseEquipmentType($: cheerio.Root, elem: cheerio.Element): Promi
     // download thumbnail
     const src = thumbnail.attr('src');
     if (src) {
-        type.thumbnail = await parseThumbnail(src, 'thumbs/Equipment/');
+        type.thumbnail = await parseThumbnail(src, 'public/thumbs/Equipment/');
     }
 
     return type;
@@ -137,6 +137,6 @@ async function parseThumbnail(src: string, basePath: string): Promise<string> {
 
 const equipment = await parseEquipment();
 
-fs.writeFileSync('thumbs/data.json', JSON.stringify(equipment, null, 2));
+fs.writeFileSync('src/data/equipment.json', JSON.stringify(equipment, null, 2));
 
 console.log('done');
