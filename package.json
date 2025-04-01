@@ -11,6 +11,8 @@
     "scrape": "tsx bin/scrape.ts"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.0.17",
     "axios": "1.8.4",
     "react": "19.0.0",
