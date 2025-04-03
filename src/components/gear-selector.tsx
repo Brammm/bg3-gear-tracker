@@ -49,7 +49,7 @@ export default function GearSelector() {
                     <ul>
                         {selectedItems[type.name]?.map((item) => (
                             <li key={item.url} className="flex">
-                                <ItemName item={item} />
+                                <ItemName item={item} addLink />
                             </li>
                         ))}
                     </ul>
