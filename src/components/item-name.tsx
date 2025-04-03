@@ -7,9 +7,8 @@ type Props = {
 };
 
 export default function ItemName({ item, addLink = false }: Props) {
-    const Wrapper = addLink ? 'a' : 'span';
-    
-    
+    const Wrapper = addLink ? "a" : "span";
+
     return (
         <div className="flex">
             <img className="size-6" src={item.thumbnail} alt={item.name} />

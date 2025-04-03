@@ -175,6 +175,6 @@ if (fs.existsSync("public/thumbs")) {
 }
 
 const equipment = await parseEquipment();
-fs.writeFileSync("src/data/equipment.json", JSON.stringify(equipment, null, 4));
+fs.writeFileSync("src/data/equipment.json", `${JSON.stringify(equipment, null, 4)}\n`);
 
 console.log("done");

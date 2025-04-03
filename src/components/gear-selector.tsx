@@ -11,7 +11,8 @@ export default function GearSelector() {
     const rawItems = useBuildsStore(
         (state) => state.builds[state.selectedBuild].items,
     );
-    const selectItem = useBuildsStore((state) => state.addItem);
+    const addItem = useBuildsStore((state) => state.addItem);
+    const removeItem = useBuildsStore((state) => state.removeItem);
 
     const selectedItems = useMemo(() => {
         return Object.entries(rawItems).reduce<Record<string, Item[]>>(
@@ -27,6 +28,8 @@ export default function GearSelector() {
                     }
                     acc[type].push(item);
                 }
+
+                acc[type].sort((a, b) => a.name.localeCompare(b.name));
 
                 return acc;
             },
@@ -50,13 +53,21 @@ export default function GearSelector() {
                         {selectedItems[type.name]?.map((item) => (
                             <li key={item.url} className="flex">
                                 <ItemName item={item} addLink />
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        removeItem(type.name, item.url);
+                                    }}
+                                >
+                                    &times;
+                                </button>
                             </li>
                         ))}
                     </ul>
                     <ItemCombobox
                         items={type.items}
                         onAdd={(item) => {
-                            selectItem(type.name, item.url);
+                            addItem(type.name, item.url);
                         }}
                     />
                 </div>

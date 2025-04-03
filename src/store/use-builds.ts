@@ -13,6 +13,7 @@ interface BuildsState {
     selectBuild: (index: number) => void;
     addBuild: (name: string) => void;
     addItem: (type: string, item: string) => void;
+    removeItem: (type: string, item: string) => void;
 }
 
 export const useBuildsStore = create<BuildsState>()(
@@ -47,6 +48,18 @@ export const useBuildsStore = create<BuildsState>()(
                         }
 
                         build.items[type].push(item);
+                    });
+                }),
+            removeItem: (type, item) =>
+                set((state) => {
+                    state.builds.map((build, i) => {
+                        if (i !== state.selectedBuild) {
+                            return;
+                        }
+
+                        build.items[type] = build.items[type].filter(
+                            (addedItem) => addedItem !== item,
+                        );
                     });
                 }),
         })),
