@@ -119,10 +119,21 @@ async function parseEquipmentType(
         return;
     }
 
+    
+    const items = url === '/wiki/Weapon' 
+        ? (await Promise.all([
+            parseItems('/wiki/List_of_common_weapons'),
+            parseItems('/wiki/List_of_uncommon_weapons'),
+            parseItems('/wiki/List_of_rare_weapons'),
+            parseItems('/wiki/List_of_very_rare_weapons'),
+            parseItems('/wiki/List_of_legendary_weapons'),
+        ])).flat()
+        : await parseItems(url);
+    
     const type: EquipmentType = {
         name: link.text().trim(),
         url,
-        items: await parseItems(url),
+        items,
     };
 
     // download thumbnail
@@ -148,7 +159,7 @@ async function parseThumbnail(src: string, basePath: string): Promise<string> {
         responseType: "stream",
     });
 
-    const writer = fs.createWriteStream(fullPath);
+    const writer = fs.createWriteStream(decodeURIComponent(fullPath));
     response.data.pipe(writer);
 
     return fullPath.replace("public", "");

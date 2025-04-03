@@ -6,8 +6,6 @@ type Props = {
 };
 
 export default function ItemName({ item }: Props) {
-    console.log(item);
-
     return (
         <div className="flex">
             <img className="size-6" src={item.thumbnail} alt={item.name} />
