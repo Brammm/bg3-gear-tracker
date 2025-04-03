@@ -135,7 +135,7 @@ async function parseEquipmentType(
     const type: EquipmentType = {
         name: link.text().trim(),
         url,
-        items,
+        items: items.sort((a, b) => a.url.localeCompare(b.url)),
     };
 
     // download thumbnail
