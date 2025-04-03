@@ -1,8 +1,15 @@
 import GearSelector from "./components/gear-selector.tsx";
 import { useBuildsStore } from "./store/use-builds.ts";
 
+export type Item = {
+    name: string;
+    url: string;
+    rarity: string;
+    thumbnail: string;
+};
+
 function App() {
-    const { builds, addBuild, selectBuild, selectedBuild } = useBuildsStore();
+    const { builds, addBuild, selectBuild } = useBuildsStore();
 
     const handleAdd = () => {
         const name = prompt("Enter name");
@@ -27,7 +34,7 @@ function App() {
                     </button>
                 </div>
             ))}
-            <GearSelector selectedItems={builds[selectedBuild].items} />
+            <GearSelector />
         </>
     );
 }
