@@ -12,7 +12,7 @@ interface BuildsState {
     selectedBuild: number;
     selectBuild: (index: number) => void;
     addBuild: (name: string) => void;
-    selectItem: (type: string, item: string) => void;
+    addItem: (type: string, item: string) => void;
 }
 
 export const useBuildsStore = create<BuildsState>()(
@@ -31,15 +31,21 @@ export const useBuildsStore = create<BuildsState>()(
                 set((state) => {
                     state.builds.push({ name, items: {} });
                 }),
-            selectItem: (type, item) =>
+            addItem: (type, item) =>
                 set((state) => {
                     state.builds.map((build, i) => {
                         if (i !== state.selectedBuild) {
                             return;
                         }
+
                         if (!build.items[type]) {
                             build.items[type] = [];
                         }
+
+                        if (build.items[type].includes(item)) {
+                            return;
+                        }
+
                         build.items[type].push(item);
                     });
                 }),

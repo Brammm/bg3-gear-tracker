@@ -119,17 +119,19 @@ async function parseEquipmentType(
         return;
     }
 
-    
-    const items = url === '/wiki/Weapon' 
-        ? (await Promise.all([
-            parseItems('/wiki/List_of_common_weapons'),
-            parseItems('/wiki/List_of_uncommon_weapons'),
-            parseItems('/wiki/List_of_rare_weapons'),
-            parseItems('/wiki/List_of_very_rare_weapons'),
-            parseItems('/wiki/List_of_legendary_weapons'),
-        ])).flat()
-        : await parseItems(url);
-    
+    const items =
+        url === "/wiki/Weapon"
+            ? (
+                  await Promise.all([
+                      parseItems("/wiki/List_of_common_weapons"),
+                      parseItems("/wiki/List_of_uncommon_weapons"),
+                      parseItems("/wiki/List_of_rare_weapons"),
+                      parseItems("/wiki/List_of_very_rare_weapons"),
+                      parseItems("/wiki/List_of_legendary_weapons"),
+                  ])
+              ).flat()
+            : await parseItems(url);
+
     const type: EquipmentType = {
         name: link.text().trim(),
         url,
@@ -173,6 +175,6 @@ if (fs.existsSync("public/thumbs")) {
 }
 
 const equipment = await parseEquipment();
-fs.writeFileSync("src/data/equipment.json", JSON.stringify(equipment, null, 2));
+fs.writeFileSync("src/data/equipment.json", JSON.stringify(equipment, null, 4));
 
 console.log("done");

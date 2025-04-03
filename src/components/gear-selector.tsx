@@ -11,7 +11,7 @@ export default function GearSelector() {
     const rawItems = useBuildsStore(
         (state) => state.builds[state.selectedBuild].items,
     );
-    const selectItem = useBuildsStore((state) => state.selectItem);
+    const selectItem = useBuildsStore((state) => state.addItem);
 
     const selectedItems = useMemo(() => {
         return Object.entries(rawItems).reduce<Record<string, Item[]>>(
