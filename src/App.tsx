@@ -1,10 +1,8 @@
-import { useState } from "react";
 import GearSelector from "./components/gear-selector.tsx";
 import { useBuildsStore } from "./store/use-builds.ts";
 
 function App() {
-    const [selectedBuildIndex, setSelectedBuildIndex] = useState(0);
-    const { builds, addBuild } = useBuildsStore();
+    const { builds, addBuild, selectBuild, selectedBuild } = useBuildsStore();
 
     const handleAdd = () => {
         const name = prompt("Enter name");
@@ -15,8 +13,6 @@ function App() {
         addBuild(name);
     };
 
-    const selectedBuild = builds[selectedBuildIndex];
-
     return (
         <>
             <h1>Baldur's Gate 3 - Gear builder</h1>
@@ -26,15 +22,12 @@ function App() {
             {builds.map((build, i) => (
                 // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 <div key={i}>
-                    <button
-                        onClick={() => setSelectedBuildIndex(i)}
-                        type="button"
-                    >
+                    <button onClick={() => selectBuild(i)} type="button">
                         {build.name}
                     </button>
                 </div>
             ))}
-            <GearSelector selectedItems={selectedBuild.items} />
+            <GearSelector selectedItems={builds[selectedBuild].items} />
         </>
     );
 }
