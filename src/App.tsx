@@ -1,19 +1,32 @@
-import equipment from './data/equipment.json';
-import ItemCombobox from './components/item-combobox.tsx';
+import { useBuildsStore } from './store/use-builds.ts';
+import { useState } from 'react';
+import GearSelector from './components/gear-selector.tsx';
 
 function App() {
+    const [ selectedBuildIndex, setSelectedBuildIndex ] = useState(0);
+    const {builds, addBuild} = useBuildsStore();
+
+    const handleAdd = () => {
+        const name = prompt('Enter name');
+        if (!name) {
+            return;
+        }
+
+        addBuild(name);
+    };
+
+    const selectedBuild = builds[selectedBuildIndex];
+
     return (
         <>
-            <h1>Hello World!</h1>
-            {equipment.map((type) => (
-                <div key={type.name}>
-                    <h2 className="flex items-center">
-                        <img src={type.thumbnail} alt={type.name}  className="size-6 shrink-0" />
-                        <span className="ml-3">{type.name}</span>
-                    </h2>
-                    <ItemCombobox items={type.items} />
+            <h1>Baldur's Gate 3 - Gear builder</h1>
+            <button type="button" onClick={ handleAdd }>Add Build</button>
+            { builds.map((build, i) => (
+                <div key={ i }>
+                    <button onClick={ () => setSelectedBuildIndex(i) } type="button">{ build.name }</button>
                 </div>
-            ))}
+            )) }
+            <GearSelector selectedItems={ selectedBuild.items } />
         </>
     );
 }
