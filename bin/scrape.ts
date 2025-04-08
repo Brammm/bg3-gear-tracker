@@ -164,7 +164,13 @@ async function parseThumbnail(src: string, basePath: string): Promise<string> {
     const writer = fs.createWriteStream(decodeURIComponent(fullPath));
     response.data.pipe(writer);
 
-    return fullPath.replace("public", "");
+    return decodeName(fullPath);
+}
+
+function decodeName(name: string): string {
+    return name
+        .replace("public", "")
+        .replaceAll("%2B", "+");
 }
 
 if (fs.existsSync("src/data/equipment.json")) {
