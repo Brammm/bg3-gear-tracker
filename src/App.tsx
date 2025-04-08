@@ -22,7 +22,7 @@ function App() {
 
     return (
         <>
-            <h1>Baldur's Gate 3 - Gear builder</h1>
+            <h1 className="font-title">Baldur's Gate 3 - Gear builder</h1>
             <button type="button" onClick={handleAdd}>
                 Add Build
             </button>
