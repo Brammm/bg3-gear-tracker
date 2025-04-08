@@ -20,6 +20,7 @@ export default function ItemName({ item, addLink = false }: Props) {
                     item.rarity === "Very rare" && "text-[#D1017B]",
                     item.rarity === "Legendary" && "text-[#B7861D]",
                     item.rarity === "Story Item" && "text-[#FF5901]",
+                    addLink && "hover:underline",
                 )}
                 href={addLink ? `https://bg3.wiki/${item.url}` : undefined}
                 target={addLink ? "_blank" : undefined}
