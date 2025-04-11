@@ -38,22 +38,34 @@ export default function GearSelector() {
     }, [rawItems]);
 
     return (
-        <div>
+        <div className="grid grid-cols-2 gap-4 mt-8">
             {equipment.map((type) => (
-                <div key={type.name}>
-                    <h2 className="flex items-center">
-                        <img
-                            src={type.thumbnail}
-                            alt={type.name}
-                            className="size-6 shrink-0"
+                <div key={type.name} className="bg-gray-darker p-4">
+                    <div className="lg:flex items-center justify-between mb-4">
+                        <h2 className="flex items-center">
+                            <img
+                                src={type.thumbnail}
+                                alt={type.name}
+                                className="size-6 shrink-0"
+                            />
+                            <span className="ml-3 font-title">{type.name}</span>
+                        </h2>
+                        <ItemCombobox
+                            items={type.items}
+                            onAdd={(item) => {
+                                addItem(type.name, item.url);
+                            }}
                         />
-                        <span className="ml-3">{type.name}</span>
-                    </h2>
+                    </div>
                     <ul>
                         {selectedItems[type.name]?.map((item) => (
-                            <li key={item.url} className="flex">
+                            <li
+                                key={item.url}
+                                className="flex items-center justify-between"
+                            >
                                 <ItemName item={item} addLink />
                                 <button
+                                    className="size-6 bg-gray-dark rounded cursor-pointer"
                                     type="button"
                                     onClick={() => {
                                         removeItem(type.name, item.url);
@@ -64,12 +76,6 @@ export default function GearSelector() {
                             </li>
                         ))}
                     </ul>
-                    <ItemCombobox
-                        items={type.items}
-                        onAdd={(item) => {
-                            addItem(type.name, item.url);
-                        }}
-                    />
                 </div>
             ))}
         </div>

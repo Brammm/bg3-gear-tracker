@@ -21,8 +21,10 @@ function App() {
     };
 
     return (
-        <div className="max-w-5xl mx-auto">
-            <h1 className="font-title">Baldur's Gate 3 - Gear builder</h1>
+        <div className="max-w-5xl mx-auto mt-10">
+            <h1 className="font-title text-primary text-2xl mb-10">
+                Baldur's Gate 3 - Gear Tracker
+            </h1>
             <button type="button" onClick={handleAdd}>
                 Add Build
             </button>

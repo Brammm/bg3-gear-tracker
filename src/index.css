@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
 @theme {
+    --color-text: #d2d2d2;
+    --color-primary: #ffa03c;
+    --color-gray-light: #232323;
+    --color-gray-darker: #1f1e1e;
+    --color-gray-dark: #171717;
     --font-title: "Linux Libertine", "Georgia", "Times", serif;
+}
+
+body {
+    @apply bg-gray-light text-text;
 }

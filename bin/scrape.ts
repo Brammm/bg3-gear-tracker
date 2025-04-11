@@ -168,9 +168,7 @@ async function parseThumbnail(src: string, basePath: string): Promise<string> {
 }
 
 function decodeName(name: string): string {
-    return name
-        .replace("public", "")
-        .replaceAll("%2B", "+");
+    return name.replace("public", "").replaceAll("%2B", "+");
 }
 
 if (fs.existsSync("src/data/equipment.json")) {
@@ -181,6 +179,9 @@ if (fs.existsSync("public/thumbs")) {
 }
 
 const equipment = await parseEquipment();
-fs.writeFileSync("src/data/equipment.json", `${JSON.stringify(equipment, null, 4)}\n`);
+fs.writeFileSync(
+    "src/data/equipment.json",
+    `${JSON.stringify(equipment, null, 4)}\n`,
+);
 
 console.log("done");
