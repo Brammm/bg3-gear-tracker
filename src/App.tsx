@@ -21,7 +21,7 @@ function App() {
     };
 
     return (
-        <>
+        <div className="max-w-5xl mx-auto">
             <h1 className="font-title">Baldur's Gate 3 - Gear builder</h1>
             <button type="button" onClick={handleAdd}>
                 Add Build
@@ -35,7 +35,7 @@ function App() {
                 </div>
             ))}
             <GearSelector />
-        </>
+        </div>
     );
 }
 
