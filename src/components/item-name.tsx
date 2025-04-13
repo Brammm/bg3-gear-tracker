@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { Item } from "../App.tsx";
+import { type Item, rarityColorMap } from "../data/rarity.ts";
 
 type Props = {
     addLink?: boolean;
@@ -14,12 +14,7 @@ export default function ItemName({ item, addLink = false }: Props) {
             className={clsx(
                 "flex",
                 addLink && "hover:underline",
-                item.rarity === "Common" && "text-[#FFFFFF]",
-                item.rarity === "Uncommon" && "text-[#01BD39]",
-                item.rarity === "Rare" && "text-[#01BFFF]",
-                item.rarity === "Very rare" && "text-[#D1017B]",
-                item.rarity === "Legendary" && "text-[#B7861D]",
-                item.rarity === "Story Item" && "text-[#FF5901]",
+                `text-[${rarityColorMap[item.rarity]}]`,
             )}
             href={addLink ? `https://bg3.wiki/${item.url}` : undefined}
             target={addLink ? "_blank" : undefined}

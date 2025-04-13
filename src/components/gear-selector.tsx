@@ -1,7 +1,9 @@
+import clsx from "clsx";
 import { useMemo } from "react";
-import type { Item } from "../App.tsx";
-import equipment from "../data/equipment.json";
+import { equipment } from "../data/equipment";
+import type { Item } from "../data/rarity.ts";
 import { useBuildsStore } from "../store/use-builds.ts";
+import Checkbox from "./checkbox.tsx";
 import ItemCombobox from "./item-combobox.tsx";
 import ItemName from "./item-name.tsx";
 
@@ -13,6 +15,9 @@ export default function GearSelector() {
     );
     const addItem = useBuildsStore((state) => state.addItem);
     const removeItem = useBuildsStore((state) => state.removeItem);
+    const isAcquired = useBuildsStore((state) => state.isAcquired);
+    const acquireItem = useBuildsStore((state) => state.acquireItem);
+    const unacquireItem = useBuildsStore((state) => state.unacquireItem);
 
     const selectedItems = useMemo(() => {
         return Object.entries(rawItems).reduce<Record<string, Item[]>>(
@@ -58,23 +63,43 @@ export default function GearSelector() {
                         />
                     </div>
                     <ul>
-                        {selectedItems[type.name]?.map((item) => (
-                            <li
-                                key={item.url}
-                                className="flex items-center justify-between"
-                            >
-                                <ItemName item={item} addLink />
-                                <button
-                                    className="size-6 bg-gray-dark rounded cursor-pointer"
-                                    type="button"
-                                    onClick={() => {
-                                        removeItem(type.name, item.url);
-                                    }}
+                        {selectedItems[type.name]?.map((item) => {
+                            const itemAcquired = isAcquired(item.url);
+                            return (
+                                <li
+                                    key={item.url}
+                                    className="flex items-center justify-between"
                                 >
-                                    &times;
-                                </button>
-                            </li>
-                        ))}
+                                    <div
+                                        className={clsx(
+                                            "flex gap-4",
+                                            itemAcquired && "line-through",
+                                        )}
+                                    >
+                                        <Checkbox
+                                            checked={itemAcquired}
+                                            onChange={(checked) => {
+                                                if (checked) {
+                                                    acquireItem(item.url);
+                                                } else {
+                                                    unacquireItem(item.url);
+                                                }
+                                            }}
+                                        />
+                                        <ItemName item={item} addLink />
+                                    </div>
+                                    <button
+                                        className="size-6 bg-gray-dark rounded cursor-pointer"
+                                        type="button"
+                                        onClick={() => {
+                                            removeItem(type.name, item.url);
+                                        }}
+                                    >
+                                        &times;
+                                    </button>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
             ))}
