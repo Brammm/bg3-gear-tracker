@@ -13,6 +13,7 @@ interface BuildsState {
     selectedBuild: number;
     selectBuild: (index: number) => void;
     addBuild: (name: string) => void;
+    renameBuild: (index: number, name: string) => void;
     addItem: (type: string, item: string) => void;
     removeItem: (type: string, item: string) => void;
     acquireItem: (item: string) => void;
@@ -32,10 +33,14 @@ export const useBuildsStore = create<BuildsState>()(
             acquiredItems: [],
             selectedBuild: 0,
             selectBuild: (index: number) =>
-                set(() => ({ selectedBuild: index + 1 })),
+                set(() => ({ selectedBuild: index })),
             addBuild: (name) =>
                 set((state) => {
                     state.builds.push({ name, items: {} });
+                }),
+            renameBuild: (index: number, name: string) =>
+                set((state) => {
+                    state.builds[index].name = name;
                 }),
             addItem: (type, item) =>
                 set((state) => {

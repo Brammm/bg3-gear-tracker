@@ -16,7 +16,7 @@ export default function Checkbox({
     return (
         <button type="button" onClick={handleClick}>
             {checked ? (
-                <SquareCheckBig className="size-5 text-emerald-600" />
+                <SquareCheckBig className="size-5 text-emerald-500" />
             ) : (
                 <Square className="size-5 text-text" />
             )}
