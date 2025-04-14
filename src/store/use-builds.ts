@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
-type Build = {
+export type Build = {
     name: string;
     items: Record<string, string[]>;
 };
@@ -10,10 +10,11 @@ type Build = {
 interface BuildsState {
     builds: [Build, ...Build[]];
     acquiredItems: string[];
-    selectedBuild: number;
+    selectedBuildIndex: number;
     selectBuild: (index: number) => void;
     addBuild: (name: string) => void;
     renameBuild: (index: number, name: string) => void;
+    removeBuild: (index: number) => void;
     addItem: (type: string, item: string) => void;
     removeItem: (type: string, item: string) => void;
     acquireItem: (item: string) => void;
@@ -21,19 +22,19 @@ interface BuildsState {
     isAcquired: (item: string) => boolean;
 }
 
+const defaultBuild = {
+    name: "Build 1",
+    items: {},
+};
+
 export const useBuildsStore = create<BuildsState>()(
     persist(
         immer((set, get) => ({
-            builds: [
-                {
-                    name: "Build 1",
-                    items: {},
-                },
-            ],
+            builds: [defaultBuild],
             acquiredItems: [],
-            selectedBuild: 0,
+            selectedBuildIndex: 0,
             selectBuild: (index: number) =>
-                set(() => ({ selectedBuild: index })),
+                set(() => ({ selectedBuildIndex: index })),
             addBuild: (name) =>
                 set((state) => {
                     state.builds.push({ name, items: {} });
@@ -42,10 +43,21 @@ export const useBuildsStore = create<BuildsState>()(
                 set((state) => {
                     state.builds[index].name = name;
                 }),
+            removeBuild: (index: number) =>
+                set((state) => {
+                    state.builds.splice(index, 1);
+                    if (index >= state.builds.length) {
+                        state.selectedBuildIndex = state.builds.length - 1;
+                    }
+                    if (state.builds.length === 0) {
+                        state.builds = [defaultBuild];
+                        state.selectedBuildIndex = 0;
+                    }
+                }),
             addItem: (type, item) =>
                 set((state) => {
                     state.builds.map((build, i) => {
-                        if (i !== state.selectedBuild) {
+                        if (i !== state.selectedBuildIndex) {
                             return;
                         }
 
@@ -63,7 +75,7 @@ export const useBuildsStore = create<BuildsState>()(
             removeItem: (type, item) =>
                 set((state) => {
                     state.builds.map((build, i) => {
-                        if (i !== state.selectedBuild) {
+                        if (i !== state.selectedBuildIndex) {
                             return;
                         }
 

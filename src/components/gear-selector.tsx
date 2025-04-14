@@ -11,7 +11,7 @@ const allItems = equipment.flatMap((type) => type.items);
 
 export default function GearSelector() {
     const rawItems = useBuildsStore(
-        (state) => state.builds[state.selectedBuild].items,
+        (state) => state.builds[state.selectedBuildIndex].items,
     );
     const addItem = useBuildsStore((state) => state.addItem);
     const removeItem = useBuildsStore((state) => state.removeItem);

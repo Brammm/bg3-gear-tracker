@@ -7,7 +7,7 @@ import {
 } from "@headlessui/react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { useState } from "react";
-import type { Item } from "../App.tsx";
+import type { Item } from "../data/rarity.ts";
 import ItemName from "./item-name.tsx";
 
 type Props = { items: Item[]; onAdd: (item: Item) => void };
