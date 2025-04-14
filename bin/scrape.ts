@@ -16,61 +16,61 @@ const parsedItems: string[] = [];
 const equipment: EquipmentType[] = [
     {
         name: "Amulets",
-        url: "/wiki/Amulets",
+        url: ["/wiki/Amulets"],
         thumbnail: "/equipment/120px-Keepsake_Locket_A_Unfaded.png",
         items: [],
     },
     {
         name: "Armour",
-        url: "/wiki/Armour",
+        url: ["/wiki/Armour","/wiki/Clothing"],
         thumbnail: "/equipment/120px-Padded_Armour_Unfaded.png",
         items: [],
     },
     {
         name: "Cloaks",
-        url: "/wiki/Cloaks",
+        url: ["/wiki/Cloaks"],
         thumbnail: "/equipment/120px-Cloak_Long_C_1_Unfaded.png",
         items: [],
     },
     {
         name: "Footwear",
-        url: "/wiki/Footwear",
+        url: ["/wiki/Footwear"],
         thumbnail: "/equipment/120px-Boots_Leather_Unfaded.png",
         items: [],
     },
     {
         name: "Headwear",
-        url: "/wiki/Headwear",
+        url: ["/wiki/Headwear"],
         thumbnail: "/equipment/120px-Circlet_of_Mental_Anguish_Unfaded.png",
         items: [],
     },
     {
         name: "Handwear",
-        url: "/wiki/Handwear",
+        url: ["/wiki/Handwear"],
         thumbnail: "/equipment/120px-Gloves_Metal_Unfaded.png",
         items: [],
     },
     {
         name: "Rings",
-        url: "/wiki/Rings",
+        url: ["/wiki/Rings"],
         thumbnail: "/equipment/120px-Crushers_Ring_Unfaded.png",
         items: [],
     },
     {
         name: "Shields",
-        url: "/wiki/Shields",
+        url: ["/wiki/Shields"],
         thumbnail: "/equipment/120px-Studded_Shield_Unfaded.png",
         items: [],
     },
     {
         name: "Melee Weapons",
-        url: "/wiki/List_of_melee_weapons",
+        url: ["/wiki/List_of_melee_weapons"],
         thumbnail: "/equipment/120px-Greataxe_Unfaded.png",
         items: [],
     },
     {
         name: "Ranged Weapons",
-        url: "/wiki/List_of_ranged_weapons",
+        url: ["/wiki/List_of_ranged_weapons"],
         thumbnail: "/equipment/50px-Longbow_Unfaded_Icon.png",
         items: [],
     },
@@ -88,12 +88,16 @@ if (fs.existsSync("public/thumbs")) {
 for await (const type of equipment) {
     console.log(`Parsing ${type.name}`);
 
-    const items = await parseItems(type.url);
-    for await (const item of items) {
-        item.thumbnail = await downloadThumbnail(
-            item.thumbnail,
-            `public/thumbs/${type.name}`,
-        );
+    const items = [];
+    for await (const url of type.url) {
+        const tempItems = await parseItems(url);
+        for await (const item of tempItems) {
+            item.thumbnail = await downloadThumbnail(
+                item.thumbnail,
+                `public/thumbs/${type.name}`,
+            );
+        }
+        items.push(...tempItems);
     }
 
     type.items = items;
