@@ -70,7 +70,7 @@ export default function Nav() {
                     <ChevronLeft />
                 </Button>
                 <Listbox value={selected} onChange={setSelected}>
-                    <div className="relative grow lg:grow-0 lg:w-64">
+                    <div className="relative grow md:grow-0 md:w-64">
                         <ListboxButton className="grid w-full cursor-default grid-cols-1 rounded-md bg-gray-darker py-1.5 pl-3 pr-2 text-left text-text outline outline-1 -outline-offset-1 outline-neutral-700 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6">
                             <span className="col-start-1 row-start-1 truncate pr-6">
                                 {selected.name}
@@ -115,7 +115,7 @@ export default function Nav() {
                     <ChevronRight />
                 </Button>
             </div>
-            <div className="flex items-center justify-center gap-x-4 [&>*]:grow lg:[&>*]:grow-0">
+            <div className="flex items-center justify-center gap-x-4 [&>*]:grow md:[&>*]:grow-0">
                 <Button onClick={handleAdd}>
                     <Plus className="size-4 mr-3" />
                     Add Build

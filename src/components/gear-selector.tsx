@@ -45,11 +45,11 @@ export default function GearSelector() {
     }, [rawItems]);
 
     return (
-        <div className="grid lg:grid-cols-2 gap-4 mt-8">
+        <div className="grid md:grid-cols-2 gap-4 mt-8">
             {equipment.map((type) => (
                 <div key={type.name} className="bg-gray-darker p-4">
-                    <div className="lg:flex items-center justify-between mb-4">
-                        <h2 className="flex items-center mb-2 lg:mb-0">
+                    <div className="md:flex items-center justify-between mb-4">
+                        <h2 className="flex items-center mb-2 md:mb-0">
                             <img
                                 src={type.thumbnail}
                                 alt={type.name}
