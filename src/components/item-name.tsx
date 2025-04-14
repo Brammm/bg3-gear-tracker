@@ -9,16 +9,6 @@ type Props = {
 export default function ItemName({ item, addLink = false }: Props) {
     const Wrapper = addLink ? "a" : "span";
 
-    // @ts-expect-error Temp hack to let tailwind v4 recognize these
-    const safelist = [
-        "text-[#FFFFFF]",
-        "text-[#01BD39]",
-        "text-[#01BFFF]",
-        "text-[#D1017B]",
-        "text-[#B7861D]",
-        "text-[#FF5901]",
-    ];
-    
     return (
         <Wrapper
             className={clsx(

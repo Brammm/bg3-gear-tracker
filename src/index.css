@@ -1,4 +1,10 @@
 @import "tailwindcss";
+@source inline("text-[#FFFFFF]");
+@source inline("text-[#01BD39]");
+@source inline("text-[#01BFFF]");
+@source inline("text-[#D1017B]");
+@source inline("text-[#B7861D]");
+@source inline("text-[#FF5901]");
 
 @theme {
     --color-text: #d2d2d2;
