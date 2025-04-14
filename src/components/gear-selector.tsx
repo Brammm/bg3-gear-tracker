@@ -1,13 +1,13 @@
 import clsx from "clsx";
+import { X } from "lucide-react";
 import { useMemo } from "react";
 import { equipment } from "../data/equipment";
 import type { Item } from "../data/rarity.ts";
 import { useBuildsStore } from "../store/use-builds.ts";
+import Button from "./button.tsx";
 import Checkbox from "./checkbox.tsx";
 import ItemCombobox from "./item-combobox.tsx";
 import ItemName from "./item-name.tsx";
-import {X} from 'lucide-react';
-import Button from './button.tsx';
 
 const allItems = equipment.flatMap((type) => type.items);
 
@@ -17,7 +17,7 @@ export default function GearSelector() {
     );
     const addItem = useBuildsStore((state) => state.addItem);
     const removeItem = useBuildsStore((state) => state.removeItem);
-    const isAcquired = useBuildsStore((state) => state.isAcquired);
+    const acquiredItems = useBuildsStore((state) => state.acquiredItems);
     const acquireItem = useBuildsStore((state) => state.acquireItem);
     const unacquireItem = useBuildsStore((state) => state.unacquireItem);
 
@@ -66,7 +66,9 @@ export default function GearSelector() {
                     </div>
                     <ul>
                         {selectedItems[type.name]?.map((item) => {
-                            const itemAcquired = isAcquired(item.url);
+                            const itemAcquired = acquiredItems.includes(
+                                item.url,
+                            );
                             return (
                                 <li
                                     key={item.url}

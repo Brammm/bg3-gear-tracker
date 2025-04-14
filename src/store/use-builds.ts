@@ -19,7 +19,6 @@ interface BuildsState {
     removeItem: (type: string, item: string) => void;
     acquireItem: (item: string) => void;
     unacquireItem: (item: string) => void;
-    isAcquired: (item: string) => boolean;
 }
 
 const defaultBuild = {
@@ -29,7 +28,7 @@ const defaultBuild = {
 
 export const useBuildsStore = create<BuildsState>()(
     persist(
-        immer((set, get) => ({
+        immer((set) => ({
             builds: [defaultBuild],
             acquiredItems: [],
             selectedBuildIndex: 0,
@@ -86,6 +85,10 @@ export const useBuildsStore = create<BuildsState>()(
                 }),
             acquireItem: (item) =>
                 set((state) => {
+                    if (state.acquiredItems.includes(item)) {
+                        return;
+                    }
+
                     state.acquiredItems.push(item);
                 }),
             unacquireItem: (itemToRemove) =>
@@ -94,7 +97,6 @@ export const useBuildsStore = create<BuildsState>()(
                         (item) => itemToRemove !== item,
                     );
                 }),
-            isAcquired: (item) => get().acquiredItems.includes(item),
         })),
         { name: "bg3-gear-tracker", version: 1 },
     ),

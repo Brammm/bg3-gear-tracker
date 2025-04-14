@@ -26,8 +26,6 @@ export default function Nav() {
         removeBuild,
     } = useBuildsStore();
 
-    console.log(selectedBuildIndex);
-
     const selected = builds[selectedBuildIndex];
     const setSelected = (build: Build) => {
         selectBuild(builds.indexOf(build));
