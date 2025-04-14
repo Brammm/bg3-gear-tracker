@@ -22,7 +22,7 @@ interface BuildsState {
 }
 
 const defaultBuild = {
-    name: "Build 1",
+    name: "Tav",
     items: {},
 };
 

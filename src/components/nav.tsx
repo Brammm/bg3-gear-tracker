@@ -38,7 +38,7 @@ export default function Nav() {
         selectBuild(selectedBuildIndex + 1);
     };
     const handleAdd = () => {
-        const name = prompt("Enter name");
+        const name = prompt("Enter name", `Build ${builds.length + 1}`);
         if (!name) {
             return;
         }
@@ -47,7 +47,7 @@ export default function Nav() {
     };
 
     const handleRename = (i: number) => () => {
-        const name = prompt("Enter name");
+        const name = prompt("Rename build", builds[selectedBuildIndex].name);
         if (!name) {
             return;
         }
