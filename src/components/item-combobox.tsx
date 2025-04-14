@@ -28,6 +28,9 @@ export default function ItemCombobox({ items, onAdd }: Props) {
         if (!selectedItem) {
             return;
         }
+
+        setSelectedItem(null);
+
         onAdd(selectedItem);
     };
 
