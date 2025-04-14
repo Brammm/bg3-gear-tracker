@@ -6,6 +6,8 @@ import { useBuildsStore } from "../store/use-builds.ts";
 import Checkbox from "./checkbox.tsx";
 import ItemCombobox from "./item-combobox.tsx";
 import ItemName from "./item-name.tsx";
+import {X} from 'lucide-react';
+import Button from './button.tsx';
 
 const allItems = equipment.flatMap((type) => type.items);
 
@@ -88,15 +90,15 @@ export default function GearSelector() {
                                         />
                                         <ItemName item={item} addLink />
                                     </div>
-                                    <button
-                                        className="size-6 bg-gray-dark rounded cursor-pointer"
-                                        type="button"
+                                    <Button
                                         onClick={() => {
                                             removeItem(type.name, item.url);
                                         }}
+                                        small
+                                        title="Remove item"
                                     >
-                                        &times;
-                                    </button>
+                                        <X className="size-3" />
+                                    </Button>
                                 </li>
                             );
                         })}

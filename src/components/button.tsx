@@ -6,6 +6,7 @@ type Props = {
     disabled?: boolean;
     onClick: () => void;
     small?: boolean;
+    title?: string;
 };
 
 export default function Button({
@@ -13,6 +14,7 @@ export default function Button({
     disabled = false,
     onClick,
     small = false,
+    title,
 }: Props) {
     return (
         <UIButton
@@ -23,6 +25,7 @@ export default function Button({
                 "flex items-center rounded-md bg-gray-dark text-sm font-semibold text-text shadow-sm  data-[hover]:bg-primary data-[hover]:text-gray-light data-[focus-visible]:outline data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-primary cursor-pointer data-[disabled]:cursor-not-allowed",
                 small ? "p-1" : "px-3 py-2",
             )}
+            title={title}
         >
             {children}
         </UIButton>

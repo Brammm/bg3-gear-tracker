@@ -5,10 +5,11 @@ import {
     ComboboxOption,
     ComboboxOptions,
 } from "@headlessui/react";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, Plus } from "lucide-react";
 import { useState } from "react";
 import type { Item } from "../data/rarity.ts";
 import ItemName from "./item-name.tsx";
+import Button from './button.tsx';
 
 type Props = { items: Item[]; onAdd: (item: Item) => void };
 
@@ -31,7 +32,7 @@ export default function ItemCombobox({ items, onAdd }: Props) {
     };
 
     return (
-        <div className="flex items-center">
+        <div className="flex items-center gap-x-2">
             <Combobox
                 as="div"
                 value={selectedItem}
@@ -77,9 +78,9 @@ export default function ItemCombobox({ items, onAdd }: Props) {
                     </ComboboxOptions>
                 </div>
             </Combobox>
-            <button type="button" onClick={handleAdd}>
-                Add
-            </button>
+            <Button onClick={handleAdd} title="Add item" disabled={!selectedItem}>
+                <Plus className="size-4" />
+            </Button>
         </div>
     );
 }
