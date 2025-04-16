@@ -3,8 +3,8 @@ import * as path from "node:path";
 import axios from "axios";
 import * as cheerio from "cheerio";
 import * as cliProgress from "cli-progress";
+import { type Item, equipment } from "../src/data/equipment.ts";
 import { type Rarity, rarityColorMap } from "../src/data/rarity.ts";
-import { type Item, equipment } from "../src/data/type.ts";
 
 axios.defaults.baseURL = "https://bg3.wiki";
 
@@ -39,8 +39,8 @@ for await (const item of items) {
 bar.stop();
 
 console.log("Deleting old files");
-if (fs.existsSync("src/data/equipment.ts")) {
-    fs.rmSync("src/data/equipment.ts");
+if (fs.existsSync("src/data/items.ts")) {
+    fs.rmSync("src/data/items.ts");
 }
 if (fs.existsSync("public/thumbs")) {
     fs.rmSync("public/thumbs", { recursive: true });
@@ -48,10 +48,10 @@ if (fs.existsSync("public/thumbs")) {
 
 // write parsed data to file
 fs.writeFileSync(
-    "src/data/equipment.ts",
+    "src/data/items.ts",
     `import type { Item } from './type';
 
-export const equipment: Item[] = ${JSON.stringify(items, null, 4)};
+export const items: Item[] = ${JSON.stringify(items, null, 4)};
 `,
 );
 

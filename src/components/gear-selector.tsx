@@ -1,15 +1,13 @@
 import clsx from "clsx";
 import { X } from "lucide-react";
 import { useMemo } from "react";
-import { equipment } from "../data/equipment";
-import type { Item } from "../data/type.ts";
-import { useBuildsStore } from "../store/use-builds.ts";
-import Button from "./button.tsx";
-import Checkbox from "./checkbox.tsx";
-import ItemCombobox from "./item-combobox.tsx";
-import ItemName from "./item-name.tsx";
-
-const allItems = equipment.flatMap((type) => type.items);
+import { type Item, equipment } from "../data/equipment";
+import { items } from "../data/items";
+import { useBuildsStore } from "../store/use-builds";
+import Button from "./button";
+import Checkbox from "./checkbox";
+import ItemCombobox from "./item-combobox";
+import ItemName from "./item-name";
 
 export default function GearSelector() {
     const rawItems = useBuildsStore(
@@ -29,7 +27,7 @@ export default function GearSelector() {
                 }
 
                 for (const url of urls) {
-                    const item = allItems.find((item) => item.url === url);
+                    const item = items.find((item) => item.url === url);
                     if (!item) {
                         continue;
                     }

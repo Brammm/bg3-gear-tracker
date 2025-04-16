@@ -13,8 +13,8 @@ import {
     Plus,
     X,
 } from "lucide-react";
-import { type Build, useBuildsStore } from "../store/use-builds.ts";
-import Button from "./button.tsx";
+import { type Build, useBuildsStore } from "../store/use-builds";
+import Button from "./button";
 
 export default function Nav() {
     const {
