@@ -4,6 +4,7 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 import { type Rarity, rarityColorMap } from "../src/data/rarity.ts";
 import { type Item, equipment } from "../src/data/type.ts";
+import * as cliProgress from 'cli-progress';
 
 axios.defaults.baseURL = "https://bg3.wiki";
 
@@ -17,19 +18,24 @@ if (fs.existsSync("public/thumbs")) {
     fs.rmSync("public/thumbs", { recursive: true });
 }
 
+const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+
 // loop over equipment types
 for await (const type of equipment) {
     console.log(`Parsing ${type.name}`);
 
     for await (const url of type.url) {
         const tempItems = await parseItems(type.url[0], url);
+        bar.start(tempItems.length, 0)
         for await (const item of tempItems) {
             item.thumbnail = await downloadThumbnail(
                 item.thumbnail,
                 `public/thumbs/${type.name}`,
             );
+            bar.increment();
         }
         items.push(...tempItems);
+        bar.stop();
     }
 }
 
