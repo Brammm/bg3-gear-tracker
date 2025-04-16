@@ -2,9 +2,9 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import axios from "axios";
 import * as cheerio from "cheerio";
+import * as cliProgress from "cli-progress";
 import { type Rarity, rarityColorMap } from "../src/data/rarity.ts";
 import { type Item, equipment } from "../src/data/type.ts";
-import * as cliProgress from 'cli-progress';
 
 axios.defaults.baseURL = "https://bg3.wiki";
 
@@ -20,24 +20,31 @@ if (fs.existsSync("public/thumbs")) {
 
 const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
 
-// loop over equipment types
+console.log("Scraping items");
+bar.start(equipment.length, 0);
 for await (const type of equipment) {
-    console.log(`Parsing ${type.name}`);
-
     for await (const url of type.url) {
-        const tempItems = await parseItems(type.url[0], url);
-        bar.start(tempItems.length, 0)
-        for await (const item of tempItems) {
-            item.thumbnail = await downloadThumbnail(
-                item.thumbnail,
-                `public/thumbs/${type.name}`,
-            );
-            bar.increment();
-        }
-        items.push(...tempItems);
-        bar.stop();
+        items.push(...(await parseItems(type.url[0], url)));
     }
+    bar.increment();
 }
+bar.stop();
+
+console.log("Downloading thumbnails");
+bar.start(items.length, 0);
+for await (const item of items) {
+    const type = equipment.find((type) => type.url[0] === item.type);
+    if (!type) {
+        throw new Error(`Couldn't find type for item ${item.name}`);
+    }
+
+    item.thumbnail = await downloadThumbnail(
+        item.thumbnail,
+        `public/thumbs/${type.name}`,
+    );
+    bar.increment();
+}
+bar.stop();
 
 // write parsed data to file
 fs.writeFileSync(
