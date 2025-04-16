@@ -56,7 +56,9 @@ export default function Nav() {
     };
 
     const handleRemove = (i: number) => () => {
-        removeBuild(i);
+        if (confirm("Are you sure?")) {
+            removeBuild(i);
+        }
     };
 
     return (

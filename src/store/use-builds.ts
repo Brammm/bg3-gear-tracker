@@ -37,6 +37,7 @@ export const useBuildsStore = create<BuildsState>()(
             addBuild: (name) =>
                 set((state) => {
                     state.builds.push({ name, items: {} });
+                    state.selectedBuildIndex = state.builds.length - 1;
                 }),
             renameBuild: (index: number, name: string) =>
                 set((state) => {
