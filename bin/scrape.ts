@@ -16,7 +16,6 @@ const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
 
 // console.log(await scrapeLocation("/wiki/Amulet_of_the_Absolute"));
 
-
 console.log("Scraping items");
 bar.start(equipment.length, 0);
 for await (const type of equipment) {
@@ -27,7 +26,7 @@ for await (const type of equipment) {
 }
 bar.stop();
 
-console.log(`${REDOWNLOAD_THUMBS ? 'Downloading' : 'Parsing'} thumbnails`);
+console.log(`${REDOWNLOAD_THUMBS ? "Downloading" : "Parsing"} thumbnails`);
 if (REDOWNLOAD_THUMBS && fs.existsSync("public/thumbs")) {
     fs.rmSync("public/thumbs", { recursive: true });
 }
@@ -156,29 +155,37 @@ async function scrapeLocation(url: string): Promise<string | undefined> {
     const html = await axios.get(url);
     const $ = cheerio.load(html.data);
 
-    const places: cheerio.Cheerio[] = []; 
-    $("#Where_to_find").parent().next().find("ul > li").each((_, elem) => {
-        places.push($(elem));
-    });
+    const places: cheerio.Cheerio[] = [];
+    $("#Where_to_find")
+        .parent()
+        .next()
+        .find("ul > li")
+        .each((_, elem) => {
+            places.push($(elem));
+        });
 
     if (!places.length) {
         return undefined;
     }
-    
+
     // Look for known location first
     for (const place of places) {
         const links: string[] = [];
         place.find("a").each((_, elem) => {
             links.push($(elem).text());
         });
-        
+
         for (const link of links) {
+            if (link === "Adamantine Forge (location)") {
+                return "Adamantine Forge";
+            }
+
             if (locations.has(link)) {
                 return link;
             }
         }
     }
-    
+
     // Look for random or trader location
     for (const place of places) {
         const text = place.text();

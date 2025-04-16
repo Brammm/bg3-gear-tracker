@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { useMemo } from "react";
 import { useShallow } from "zustand/shallow";
 import { type Item, equipment } from "../data/equipment.ts";
@@ -65,12 +64,7 @@ export default function CharacterOverview() {
                                     key={item.url}
                                     className="flex items-center justify-between py-1"
                                 >
-                                    <div
-                                        className={clsx(
-                                            "flex gap-4",
-                                            itemAcquired && "line-through",
-                                        )}
-                                    >
+                                    <div className="flex gap-4">
                                         <Checkbox
                                             checked={itemAcquired}
                                             onChange={(checked) => {
@@ -81,7 +75,10 @@ export default function CharacterOverview() {
                                                 }
                                             }}
                                         />
-                                        <ItemName item={item} />
+                                        <ItemName
+                                            acquired={itemAcquired}
+                                            item={item}
+                                        />
                                     </div>
                                 </li>
                             );
