@@ -42,63 +42,72 @@ export default function GearSelector() {
         );
     }, [rawItems]);
 
+    const handleAdd = (item: Item) => {
+        addItem(item.type, item.url);
+    };
+
     return (
-        <div className="grid md:grid-cols-2 gap-4 mt-8">
-            {equipment.map((type) => (
-                <div key={type.name} className="bg-gray-darker p-4">
-                    <div className="md:flex items-center justify-between mb-4">
-                        <h2 className="flex items-center mb-2 md:mb-0">
-                            <img
-                                src={type.thumbnail}
-                                alt={type.name}
-                                className="size-6 shrink-0"
-                            />
-                            <span className="ml-3 font-title">{type.name}</span>
-                        </h2>
-                    </div>
-                    <ul>
-                        {selectedItems[type.name]?.map((item) => {
-                            const itemAcquired = acquiredItems.includes(
-                                item.url,
-                            );
-                            return (
-                                <li
-                                    key={item.url}
-                                    className="flex items-center justify-between"
-                                >
-                                    <div
-                                        className={clsx(
-                                            "flex gap-4",
-                                            itemAcquired && "line-through",
-                                        )}
+        <div>
+            <ItemCombobox items={items} onAdd={handleAdd} />
+            <div className="grid md:grid-cols-2 gap-4 mt-8">
+                {equipment.map((type) => (
+                    <div key={type.name} className="bg-gray-darker p-4">
+                        <div className="md:flex items-center justify-between mb-4">
+                            <h2 className="flex items-center mb-2 md:mb-0">
+                                <img
+                                    src={type.thumbnail}
+                                    alt={type.name}
+                                    className="size-6 shrink-0"
+                                />
+                                <span className="ml-3 font-title">
+                                    {type.name}
+                                </span>
+                            </h2>
+                        </div>
+                        <ul>
+                            {selectedItems[type.name]?.map((item) => {
+                                const itemAcquired = acquiredItems.includes(
+                                    item.url,
+                                );
+                                return (
+                                    <li
+                                        key={item.url}
+                                        className="flex items-center justify-between"
                                     >
-                                        <Checkbox
-                                            checked={itemAcquired}
-                                            onChange={(checked) => {
-                                                if (checked) {
-                                                    acquireItem(item.url);
-                                                } else {
-                                                    unacquireItem(item.url);
-                                                }
+                                        <div
+                                            className={clsx(
+                                                "flex gap-4",
+                                                itemAcquired && "line-through",
+                                            )}
+                                        >
+                                            <Checkbox
+                                                checked={itemAcquired}
+                                                onChange={(checked) => {
+                                                    if (checked) {
+                                                        acquireItem(item.url);
+                                                    } else {
+                                                        unacquireItem(item.url);
+                                                    }
+                                                }}
+                                            />
+                                            <ItemName item={item} addLink />
+                                        </div>
+                                        <Button
+                                            onClick={() => {
+                                                removeItem(type.name, item.url);
                                             }}
-                                        />
-                                        <ItemName item={item} addLink />
-                                    </div>
-                                    <Button
-                                        onClick={() => {
-                                            removeItem(type.name, item.url);
-                                        }}
-                                        small
-                                        title="Remove item"
-                                    >
-                                        <X className="size-3" />
-                                    </Button>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-            ))}
+                                            small
+                                            title="Remove item"
+                                        >
+                                            <X className="size-3" />
+                                        </Button>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

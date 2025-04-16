@@ -9,14 +9,21 @@ import { type Rarity, rarityColorMap } from "../src/data/rarity.ts";
 axios.defaults.baseURL = "https://bg3.wiki";
 
 const items: Item[] = [];
-
 const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+
+console.log("Deleting old files");
+if (fs.existsSync("src/data/items.ts")) {
+    fs.rmSync("src/data/items.ts");
+}
+if (fs.existsSync("public/thumbs")) {
+    fs.rmSync("public/thumbs", { recursive: true });
+}
 
 console.log("Scraping items");
 bar.start(equipment.length, 0);
 for await (const type of equipment) {
     for await (const url of type.url) {
-        items.push(...(await parseItems(type.url[0], url)));
+        items.push(...(await parseItems(type.name, url)));
     }
     bar.increment();
 }
@@ -25,7 +32,7 @@ bar.stop();
 console.log("Downloading thumbnails");
 bar.start(items.length, 0);
 for await (const item of items) {
-    const type = equipment.find((type) => type.url[0] === item.type);
+    const type = equipment.find((type) => type.name === item.type);
     if (!type) {
         throw new Error(`Couldn't find type for item ${item.name}`);
     }
@@ -38,18 +45,10 @@ for await (const item of items) {
 }
 bar.stop();
 
-console.log("Deleting old files");
-if (fs.existsSync("src/data/items.ts")) {
-    fs.rmSync("src/data/items.ts");
-}
-if (fs.existsSync("public/thumbs")) {
-    fs.rmSync("public/thumbs", { recursive: true });
-}
-
 // write parsed data to file
 fs.writeFileSync(
     "src/data/items.ts",
-    `import type { Item } from './type';
+    `import type { Item } from './equipment';
 
 export const items: Item[] = ${JSON.stringify(items, null, 4)};
 `,
@@ -59,7 +58,7 @@ console.log("Done");
 
 ///////////////////////// FUNCTIONS
 
-async function parseItems(typeId: string, url: string): Promise<Item[]> {
+async function parseItems(type: string, url: string): Promise<Item[]> {
     const html = await axios.get(url);
     const $ = cheerio.load(html.data);
 
@@ -80,7 +79,7 @@ async function parseItems(typeId: string, url: string): Promise<Item[]> {
             }
 
             items.push({
-                type: typeId,
+                type: type,
                 name: link.text().trim(),
                 url,
                 rarity: parseRarity($, link),
