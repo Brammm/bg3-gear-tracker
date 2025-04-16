@@ -1,27 +1,33 @@
 import clsx from "clsx";
 import type { Item } from "../data/equipment";
+import { locations } from '../data/locations';
 import { rarityColorMap } from "../data/rarity";
 
 type Props = {
-    addLink?: boolean;
     item: Item;
 };
 
-export default function ItemName({ item, addLink = false }: Props) {
-    const Wrapper = addLink ? "a" : "span";
+export default function ItemName({ item }: Props) {
+    const act = item.location ? locations.get(item.location) : undefined;
 
     return (
-        <Wrapper
+        <a
             className={clsx(
-                "flex",
-                addLink && "hover:underline",
+                "flex group",
                 `text-[${rarityColorMap[item.rarity]}]`,
             )}
-            href={addLink ? `https://bg3.wiki/${item.url}` : undefined}
-            target={addLink ? "_blank" : undefined}
+            href={`https://bg3.wiki/${item.url}`}
+            target="_blank"
+            rel="noreferrer"
         >
             <img className="size-6" src={item.thumbnail} alt={item.name} />
-            <span className="ml-3">{item.name}</span>
-        </Wrapper>
+            <span className="ml-3 group-hover:underline">{item.name}</span>
+            {item.location && (
+                <span className="ml-4 inline-flex items-center rounded-md bg-neutral-700 px-2 py-1 text-xs font-medium text-neutral-400">
+                    {act && `${act}: `}
+                    {item.location}
+                </span>
+            )}
+        </a>
     );
 }

@@ -116,7 +116,7 @@ export default function AddItems() {
                                     key={item.url}
                                     className="flex items-center justify-between py-1 hover:bg-gray-dark"
                                 >
-                                    <ItemName item={item} addLink />
+                                    <ItemName item={item} />
                                     {rawItems[item.type]?.includes(item.url) ? (
                                         <Button
                                             onClick={() =>

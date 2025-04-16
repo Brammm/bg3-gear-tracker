@@ -63,7 +63,7 @@ export default function CharacterOverview() {
                             return (
                                 <li
                                     key={item.url}
-                                    className="flex items-center justify-between"
+                                    className="flex items-center justify-between py-1"
                                 >
                                     <div
                                         className={clsx(
@@ -81,7 +81,7 @@ export default function CharacterOverview() {
                                                 }
                                             }}
                                         />
-                                        <ItemName item={item} addLink />
+                                        <ItemName item={item} />
                                     </div>
                                 </li>
                             );
