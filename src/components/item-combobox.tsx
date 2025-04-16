@@ -7,7 +7,7 @@ import {
 } from "@headlessui/react";
 import { Check, ChevronsUpDown, Plus } from "lucide-react";
 import { useState } from "react";
-import type { Item } from "../data/rarity.ts";
+import type { Item } from "../data/type.ts";
 import Button from "./button.tsx";
 import ItemName from "./item-name.tsx";
 

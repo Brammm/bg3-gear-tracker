@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { X } from "lucide-react";
 import { useMemo } from "react";
 import { equipment } from "../data/equipment";
-import type { Item } from "../data/rarity.ts";
+import type { Item } from "../data/type.ts";
 import { useBuildsStore } from "../store/use-builds.ts";
 import Button from "./button.tsx";
 import Checkbox from "./checkbox.tsx";
@@ -57,12 +57,6 @@ export default function GearSelector() {
                             />
                             <span className="ml-3 font-title">{type.name}</span>
                         </h2>
-                        <ItemCombobox
-                            items={type.items}
-                            onAdd={(item) => {
-                                addItem(type.name, item.url);
-                            }}
-                        />
                     </div>
                     <ul>
                         {selectedItems[type.name]?.map((item) => {

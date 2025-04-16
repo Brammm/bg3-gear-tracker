@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import { type Item, rarityColorMap } from "../data/rarity.ts";
+import { rarityColorMap } from "../data/rarity.ts";
+import type { Item } from "../data/type.ts";
 
 type Props = {
     addLink?: boolean;

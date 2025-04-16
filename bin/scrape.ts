@@ -2,83 +2,16 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import axios from "axios";
 import * as cheerio from "cheerio";
-import {
-    type EquipmentType,
-    type Item,
-    type Rarity,
-    rarityColorMap,
-} from "../src/data/rarity.ts";
+import { type Rarity, rarityColorMap } from "../src/data/rarity.ts";
+import { type Item, equipment } from "../src/data/type.ts";
 
 axios.defaults.baseURL = "https://bg3.wiki";
-const parsedItems: string[] = [];
 
-// Base configuration
-const equipment: EquipmentType[] = [
-    {
-        name: "Amulets",
-        url: ["/wiki/Amulets"],
-        thumbnail: "/equipment/120px-Keepsake_Locket_A_Unfaded.png",
-        items: [],
-    },
-    {
-        name: "Armour",
-        url: ["/wiki/Armour","/wiki/Clothing"],
-        thumbnail: "/equipment/120px-Padded_Armour_Unfaded.png",
-        items: [],
-    },
-    {
-        name: "Cloaks",
-        url: ["/wiki/Cloaks"],
-        thumbnail: "/equipment/120px-Cloak_Long_C_1_Unfaded.png",
-        items: [],
-    },
-    {
-        name: "Footwear",
-        url: ["/wiki/Footwear"],
-        thumbnail: "/equipment/120px-Boots_Leather_Unfaded.png",
-        items: [],
-    },
-    {
-        name: "Headwear",
-        url: ["/wiki/Headwear"],
-        thumbnail: "/equipment/120px-Circlet_of_Mental_Anguish_Unfaded.png",
-        items: [],
-    },
-    {
-        name: "Handwear",
-        url: ["/wiki/Handwear"],
-        thumbnail: "/equipment/120px-Gloves_Metal_Unfaded.png",
-        items: [],
-    },
-    {
-        name: "Rings",
-        url: ["/wiki/Rings"],
-        thumbnail: "/equipment/120px-Crushers_Ring_Unfaded.png",
-        items: [],
-    },
-    {
-        name: "Shields",
-        url: ["/wiki/Shields"],
-        thumbnail: "/equipment/120px-Studded_Shield_Unfaded.png",
-        items: [],
-    },
-    {
-        name: "Melee Weapons",
-        url: ["/wiki/List_of_melee_weapons"],
-        thumbnail: "/equipment/120px-Greataxe_Unfaded.png",
-        items: [],
-    },
-    {
-        name: "Ranged Weapons",
-        url: ["/wiki/List_of_ranged_weapons"],
-        thumbnail: "/equipment/50px-Longbow_Unfaded_Icon.png",
-        items: [],
-    },
-];
+const items: Item[] = [];
 
 // clean up old files/data
-if (fs.existsSync("src/data/equipment.json")) {
-    fs.rmSync("src/data/equipment.json");
+if (fs.existsSync("src/data/equipment.ts")) {
+    fs.rmSync("src/data/equipment.ts");
 }
 if (fs.existsSync("public/thumbs")) {
     fs.rmSync("public/thumbs", { recursive: true });
@@ -88,9 +21,8 @@ if (fs.existsSync("public/thumbs")) {
 for await (const type of equipment) {
     console.log(`Parsing ${type.name}`);
 
-    const items = [];
     for await (const url of type.url) {
-        const tempItems = await parseItems(url);
+        const tempItems = await parseItems(type.url[0], url);
         for await (const item of tempItems) {
             item.thumbnail = await downloadThumbnail(
                 item.thumbnail,
@@ -99,23 +31,22 @@ for await (const type of equipment) {
         }
         items.push(...tempItems);
     }
-
-    type.items = items;
 }
 
 // write parsed data to file
 fs.writeFileSync(
     "src/data/equipment.ts",
-    `import type { EquipmentType } from './rarity';
+    `import type { Item } from './type';
 
-    export const equipment: EquipmentType[] = ${JSON.stringify(equipment, null, 4)}; \n`,
+export const equipment: Item[] = ${JSON.stringify(items, null, 4)};
+`,
 );
 
 console.log("Done");
 
 ///////////////////////// FUNCTIONS
 
-async function parseItems(url: string): Promise<Item[]> {
+async function parseItems(typeId: string, url: string): Promise<Item[]> {
     const html = await axios.get(url);
     const $ = cheerio.load(html.data);
 
@@ -130,18 +61,18 @@ async function parseItems(url: string): Promise<Item[]> {
             const url = link.attr("href");
             const src = thumbnail.attr("src");
 
-            // Don't add item if no url or image or already parsed
-            if (!url || parsedItems.includes(url) || !src) {
+            // Don't add item if no url or image, or already added
+            if (!url || !src || items.find((item) => item.url === url)) {
                 return;
             }
 
             items.push({
+                type: typeId,
                 name: link.text().trim(),
                 url,
                 rarity: parseRarity($, link),
                 thumbnail: src,
             });
-            parsedItems.push(url);
         });
     });
 

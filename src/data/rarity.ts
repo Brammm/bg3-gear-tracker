@@ -16,17 +16,3 @@ export const rarityColorMap: Record<Rarity, string> = {
     Legendary: "#B7861D",
     "Story Item": "#FF5901",
 };
-
-export type EquipmentType = {
-    name: string;
-    url: string[];
-    thumbnail?: string;
-    items: Item[];
-};
-
-export type Item = {
-    name: string;
-    url: string;
-    rarity: Rarity;
-    thumbnail: string;
-};
