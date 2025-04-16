@@ -10,14 +10,6 @@ axios.defaults.baseURL = "https://bg3.wiki";
 
 const items: Item[] = [];
 
-// clean up old files/data
-if (fs.existsSync("src/data/equipment.ts")) {
-    fs.rmSync("src/data/equipment.ts");
-}
-if (fs.existsSync("public/thumbs")) {
-    fs.rmSync("public/thumbs", { recursive: true });
-}
-
 const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
 
 console.log("Scraping items");
@@ -45,6 +37,14 @@ for await (const item of items) {
     bar.increment();
 }
 bar.stop();
+
+console.log("Deleting old files");
+if (fs.existsSync("src/data/equipment.ts")) {
+    fs.rmSync("src/data/equipment.ts");
+}
+if (fs.existsSync("public/thumbs")) {
+    fs.rmSync("public/thumbs", { recursive: true });
+}
 
 // write parsed data to file
 fs.writeFileSync(
