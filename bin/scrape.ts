@@ -3,21 +3,19 @@ import * as path from "node:path";
 import axios from "axios";
 import * as cheerio from "cheerio";
 import * as cliProgress from "cli-progress";
-import { type Item, equipment } from "../src/data/equipment.ts";
-import { type Rarity, rarityColorMap } from "../src/data/rarity.ts";
+import { type Item, equipment } from "../src/data/equipment";
+import { locations } from "../src/data/locations";
+import { type Rarity, rarityColorMap } from "../src/data/rarity";
+
+const REDOWNLOAD_THUMBS = true;
 
 axios.defaults.baseURL = "https://bg3.wiki";
 
 const items: Item[] = [];
 const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
 
-console.log("Deleting old files");
-if (fs.existsSync("src/data/items.ts")) {
-    fs.rmSync("src/data/items.ts");
-}
-if (fs.existsSync("public/thumbs")) {
-    fs.rmSync("public/thumbs", { recursive: true });
-}
+// console.log(await scrapeLocation("/wiki/Amulet_of_the_Absolute"));
+
 
 console.log("Scraping items");
 bar.start(equipment.length, 0);
@@ -29,7 +27,10 @@ for await (const type of equipment) {
 }
 bar.stop();
 
-console.log("Downloading thumbnails");
+console.log(`${REDOWNLOAD_THUMBS ? 'Downloading' : 'Parsing'} thumbnails`);
+if (REDOWNLOAD_THUMBS && fs.existsSync("public/thumbs")) {
+    fs.rmSync("public/thumbs", { recursive: true });
+}
 bar.start(items.length, 0);
 for await (const item of items) {
     const type = equipment.find((type) => type.name === item.type);
@@ -45,7 +46,18 @@ for await (const item of items) {
 }
 bar.stop();
 
-// write parsed data to file
+console.log("Scraping locations");
+bar.start(items.length, 0);
+for await (const item of items) {
+    item.location = await scrapeLocation(item.url);
+    bar.increment();
+}
+bar.stop();
+
+console.log("Writing items to file");
+if (fs.existsSync("src/data/items.ts")) {
+    fs.rmSync("src/data/items.ts");
+}
 fs.writeFileSync(
     "src/data/items.ts",
     `import type { Item } from './equipment';
@@ -118,22 +130,65 @@ async function downloadThumbnail(
     const filename = path.basename(src);
     const fullPath = path.join(basePath, filename);
 
-    if (!fs.existsSync(basePath)) {
-        fs.mkdirSync(basePath, { recursive: true });
+    if (REDOWNLOAD_THUMBS) {
+        if (!fs.existsSync(basePath)) {
+            fs.mkdirSync(basePath, { recursive: true });
+        }
+
+        const response = await axios({
+            url: src,
+            method: "GET",
+            responseType: "stream",
+        });
+
+        const writer = fs.createWriteStream(decodeURIComponent(fullPath));
+        response.data.pipe(writer);
     }
-
-    const response = await axios({
-        url: src,
-        method: "GET",
-        responseType: "stream",
-    });
-
-    const writer = fs.createWriteStream(decodeURIComponent(fullPath));
-    response.data.pipe(writer);
 
     return decodeName(fullPath);
 }
 
 function decodeName(name: string): string {
     return name.replace("public", "").replaceAll("%2B", "+");
+}
+
+async function scrapeLocation(url: string): Promise<string | undefined> {
+    const html = await axios.get(url);
+    const $ = cheerio.load(html.data);
+
+    const places: cheerio.Cheerio[] = []; 
+    $("#Where_to_find").parent().next().find("ul > li").each((_, elem) => {
+        places.push($(elem));
+    });
+
+    if (!places.length) {
+        return undefined;
+    }
+    
+    // Look for known location first
+    for (const place of places) {
+        const links: string[] = [];
+        place.find("a").each((_, elem) => {
+            links.push($(elem).text());
+        });
+        
+        for (const link of links) {
+            if (locations.has(link)) {
+                return link;
+            }
+        }
+    }
+    
+    // Look for random or trader location
+    for (const place of places) {
+        const text = place.text();
+
+        if (text.startsWith("Random")) {
+            return "Random";
+        }
+
+        if (text.startsWith("Sold by")) {
+            return "Traders";
+        }
+    }
 }

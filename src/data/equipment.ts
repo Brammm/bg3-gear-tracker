@@ -12,6 +12,7 @@ export type Item = {
     url: string;
     rarity: Rarity;
     thumbnail: string;
+    location?: string;
 };
 
 export const equipment: Type[] = [

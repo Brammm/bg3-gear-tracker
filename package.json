@@ -8,7 +8,8 @@
         "build": "tsc -b && vite build",
         "lint": "biome check --fix --unsafe",
         "preview": "vite preview",
-        "scrape": "tsx bin/scrape.ts"
+        "scrape": "tsx bin/scrape.ts",
+        "check": "tsx bin/check.ts"
     },
     "dependencies": {
         "@headlessui/react": "2.2.1",
