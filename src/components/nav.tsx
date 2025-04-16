@@ -60,8 +60,8 @@ export default function Nav() {
     };
 
     return (
-        <div>
-            <div className="flex items-center justify-center gap-x-4 mb-4">
+        <div className="md:flex md:gap-x-4 md:justify-between">
+            <div className="flex items-center justify-center gap-x-4 mb-4 md:mb-0">
                 <Button
                     disabled={selectedBuildIndex === 0}
                     onClick={selectPrevious}
@@ -117,15 +117,15 @@ export default function Nav() {
             </div>
             <div className="flex items-center justify-center gap-x-4 [&>*]:grow md:[&>*]:grow-0">
                 <Button onClick={handleAdd}>
-                    <Plus className="size-4 mr-3" />
+                    <Plus className="size-4 mr-2" />
                     Add Build
                 </Button>
                 <Button onClick={handleRename(selectedBuildIndex)}>
-                    <Pencil className="size-4 mr-3" />
+                    <Pencil className="size-4 mr-2" />
                     Rename
                 </Button>
                 <Button onClick={handleRemove(selectedBuildIndex)}>
-                    <X className="size-4 mr-3" />
+                    <X className="size-4 mr-2" />
                     Remove
                 </Button>
             </div>

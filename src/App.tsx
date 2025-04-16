@@ -1,16 +1,18 @@
 import { Analytics } from "@vercel/analytics/react";
-import GearSelector from "./components/gear-selector.tsx";
+import AddItems from "./components/add-items.tsx";
+import CharacterOverview from "./components/character-overview.tsx";
 import Nav from "./components/nav.tsx";
 
 function App() {
     return (
         <>
-            <div className="max-w-5xl px-4 md:px-0 mx-auto mt-10">
-                <h1 className="font-title text-primary text-2xl mb-10">
+            <div className="max-w-5xl px-4 md:px-0 mx-auto mt-4">
+                <h1 className="font-title text-primary text-2xl mb-4">
                     Gear Tracker for Baldur's Gate 3
                 </h1>
                 <Nav />
-                <GearSelector />
+                <CharacterOverview />
+                <AddItems />
                 <footer className="mt-8 text-neutral-500 text-sm flex items-center justify-center">
                     Made by{" "}
                     <a

@@ -7,6 +7,7 @@ type Props = {
     onClick: () => void;
     small?: boolean;
     title?: string;
+    active?: boolean;
 };
 
 export default function Button({
@@ -15,6 +16,7 @@ export default function Button({
     onClick,
     small = false,
     title,
+    active = false,
 }: Props) {
     return (
         <UIButton
@@ -22,7 +24,10 @@ export default function Button({
             type="button"
             onClick={onClick}
             className={clsx(
-                "flex items-center rounded-md bg-gray-dark text-sm font-semibold text-text shadow-sm  data-[hover]:bg-primary data-[hover]:text-gray-light data-[focus-visible]:outline data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-primary cursor-pointer data-[disabled]:cursor-not-allowed",
+                "flex items-center rounded-md text-sm font-semibold shadow-sm data-[focus-visible]:outline data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-primary cursor-pointer data-[disabled]:cursor-not-allowed",
+                active
+                    ? "bg-primary text-gray-light"
+                    : "bg-gray-dark text-text data-[hover]:bg-primary data-[hover]:text-gray-light",
                 small ? "p-1" : "px-3 py-2",
             )}
             title={title}
