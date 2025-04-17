@@ -1,22 +1,27 @@
-import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { Analytics } from "@vercel/analytics/react";
+import { Link } from "../components/link.tsx";
 
 export const Route = createRootRoute({
     component: () => (
         <>
-            <div className="max-w-5xl px-4 md:px-0 mx-auto mt-4">
-                <h1 className="font-title text-primary text-2xl mb-4">
-                    Gear Tracker for Baldur's Gate 3
-                </h1>
-                <div className="p-2 flex gap-2">
-                    <Link to="/" className="[&.active]:font-bold">
-                        Home
-                    </Link>{" "}
-                    <Link to="/all" className="[&.active]:font-bold">
-                        About
-                    </Link>
+            <nav className="bg-gray-dark">
+                <div className="max-w-5xl px-4 py-4 md:px-0 mx-auto lg:flex justify-between">
+                    <h1 className="font-title text-primary text-2xl">
+                        Gear Tracker for Baldur's Gate 3
+                    </h1>
+                    <div className="flex gap-x-4">
+                        <Link to="/" className="[&.active]:font-bold">
+                            Home
+                        </Link>{" "}
+                        <Link to="/all" className="[&.active]:font-bold">
+                            All items
+                        </Link>
+                    </div>
                 </div>
+            </nav>
+            <div className="max-w-5xl px-4 md:px-0 mx-auto mt-4">
                 <Outlet />
                 <footer className="mt-8 text-neutral-500 text-sm flex items-center justify-center">
                     Made by{" "}
