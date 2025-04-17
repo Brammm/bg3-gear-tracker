@@ -16,7 +16,7 @@ import {
 import { type Build, useBuildsStore } from "../store/use-builds";
 import Button from "./button";
 
-export default function Nav() {
+export default function BuildNav() {
     const {
         builds,
         addBuild,

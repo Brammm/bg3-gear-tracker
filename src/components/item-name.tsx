@@ -23,7 +23,9 @@ export default function ItemName({ acquired = false, item }: Props) {
                 className={clsx(
                     "ml-3 truncate",
                     `text-[${rarityColorMap[item.rarity]}]`,
-                    acquired ? "line-through group-hover:[text-decoration:underline_line-through]" : "group-hover:underline",
+                    acquired
+                        ? "line-through group-hover:[text-decoration:underline_line-through]"
+                        : "group-hover:underline",
                 )}
             >
                 {item.name}

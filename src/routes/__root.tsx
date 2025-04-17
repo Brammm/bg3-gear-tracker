@@ -1,18 +1,23 @@
+import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { Analytics } from "@vercel/analytics/react";
-import AddItems from "./components/add-items.tsx";
-import CharacterOverview from "./components/character-overview.tsx";
-import Nav from "./components/nav.tsx";
 
-function App() {
-    return (
+export const Route = createRootRoute({
+    component: () => (
         <>
             <div className="max-w-5xl px-4 md:px-0 mx-auto mt-4">
                 <h1 className="font-title text-primary text-2xl mb-4">
                     Gear Tracker for Baldur's Gate 3
                 </h1>
-                <Nav />
-                <CharacterOverview />
-                <AddItems />
+                <div className="p-2 flex gap-2">
+                    <Link to="/" className="[&.active]:font-bold">
+                        Home
+                    </Link>{" "}
+                    <Link to="/all" className="[&.active]:font-bold">
+                        About
+                    </Link>
+                </div>
+                <Outlet />
                 <footer className="mt-8 text-neutral-500 text-sm flex items-center justify-center">
                     Made by{" "}
                     <a
@@ -36,9 +41,8 @@ function App() {
                     .
                 </footer>
             </div>
+            <TanStackRouterDevtools />
             <Analytics />
         </>
-    );
-}
-
-export default App;
+    ),
+});
