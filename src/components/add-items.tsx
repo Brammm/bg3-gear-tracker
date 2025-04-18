@@ -1,4 +1,4 @@
-import { ListFilter, Plus, X } from "lucide-react";
+import { ListTodo, ListX, Plus, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useShallow } from "zustand/shallow";
 import { equipment } from "../data/equipment";
@@ -74,11 +74,11 @@ export default function AddItems() {
                     active={filter.selectedOnly}
                     title="Filter selected items"
                 >
-                    <ListFilter className="size-4 mr-2" /> Selected
+                    <ListTodo className="size-4 mr-2" /> Selected
                 </Button>
                 {(filter.name || filter.type || filter.selectedOnly) && (
                     <Button onClick={() => setFilter(defaultFilter)}>
-                        <X className="size-4 mr-2" /> Clear
+                        <ListX className="size-4 mr-2" /> Clear
                     </Button>
                 )}
             </div>

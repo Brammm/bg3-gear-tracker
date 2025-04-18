@@ -6,9 +6,14 @@ import { rarityColorMap } from "../data/rarity";
 type Props = {
     acquired?: boolean;
     item: Item;
+    showLocation?: boolean;
 };
 
-export default function ItemName({ acquired = false, item }: Props) {
+export default function ItemName({
+    acquired = false,
+    item,
+    showLocation = true,
+}: Props) {
     const act = item.location ? locations.get(item.location) : undefined;
 
     return (
@@ -30,7 +35,7 @@ export default function ItemName({ acquired = false, item }: Props) {
             >
                 {item.name}
             </span>
-            {item.location && (
+            {showLocation && item.location && (
                 <span className="ml-4 inline-flex items-center rounded-md bg-neutral-700 px-2 py-1 text-xs font-medium text-neutral-400 truncate">
                     {act && `${act}: `}
                     {item.location}

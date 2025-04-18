@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import AllItems from "../components/all-items";
 
 export const Route = createFileRoute("/all")({
-    component: All,
+    component: AllItems,
 });
-
-function All() {
-    return <div>WIP</div>;
-}
