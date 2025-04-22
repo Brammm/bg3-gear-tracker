@@ -6,6 +6,7 @@ import { items } from "../data/items";
 import { useBuildsStore } from "../store/use-builds";
 import Button from "./button";
 import ItemName from "./item-name";
+import { fuzzyIncludes } from '../util';
 
 type Filter = {
     name: string;
@@ -44,7 +45,7 @@ export default function AddItems() {
                 ? selectedUrls.has(item.url)
                 : true;
             const nameMatch = filter.name
-                ? item.name.toLowerCase().includes(filter.name.toLowerCase())
+                ? fuzzyIncludes(item.name, filter.name)
                 : true;
             const typeMatch = filter.type ? item.type === filter.type : true;
             return selectedMatch && nameMatch && typeMatch;

@@ -1,10 +1,12 @@
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, ListX } from "lucide-react";
 import { type ReactNode, useMemo, useState } from "react";
 import { useShallow } from "zustand/shallow";
 import { items } from "../data/items";
 import { locations } from "../data/locations";
 import { useBuildsStore } from "../store/use-builds";
+import Button from "./button.tsx";
 import ItemRow, { type ItemWithBuilds } from "./item-row.tsx";
+import { fuzzyIncludes } from '../util';
 
 type SortKey = "name" | "location" | "type" | "builds";
 type SortDirection = "asc" | "desc";
@@ -12,6 +14,7 @@ type SortDirection = "asc" | "desc";
 export default function AllItems() {
     const [sortKey, setSortKey] = useState<SortKey>("name");
     const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
+    const [filter, setFilter] = useState<string>("");
 
     const { builds } = useBuildsStore(
         useShallow((state) => ({
@@ -55,7 +58,14 @@ export default function AllItems() {
                     location: act ? `${act}: ${item.location}` : item.location,
                 };
             })
-            .filter((item) => item !== null);
+            .filter((item) => item !== null)
+            .filter((item) => {
+                if (!filter) {
+                    return true;
+                }
+                
+                return fuzzyIncludes(item.name, filter) || !item.location || fuzzyIncludes(item.location, filter)
+        });
 
         uniqueItemList.sort((a, b) => {
             // Use item property for other sort keys
@@ -68,7 +78,7 @@ export default function AllItems() {
         });
 
         return uniqueItemList;
-    }, [builds, sortKey, sortDirection]);
+    }, [builds, sortKey, sortDirection, filter]);
 
     const handleSort = (key: SortKey) => {
         if (sortKey === key) {
@@ -109,6 +119,20 @@ export default function AllItems() {
     return (
         <div className="p-4">
             <h2 className="text-xl font-title mb-4">All Unique Items Used</h2>
+            <div className="flex items-center gap-2 mb-4">
+                <input
+                    type="text"
+                    placeholder="Filter by name or location..."
+                    value={filter}
+                    onChange={(e) => setFilter(e.target.value)}
+                    className="block w-full rounded-md bg-gray-darker py-1.5 pl-3 pr-3 text-base text-text outline -outline-offset-1 outline-neutral-700 placeholder:text-neutral-400 focus:outline focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
+                />
+                {filter && (
+                    <Button onClick={() => setFilter("")}>
+                        <ListX className="size-4 mr-2" /> Clear
+                    </Button>
+                )}
+            </div>
             {uniqueItems.length > 0 ? (
                 <div className="overflow-x-auto">
                     <table className="min-w-full bg-gray-darker text-sm font-medium divide-y divide-neutral-700">
