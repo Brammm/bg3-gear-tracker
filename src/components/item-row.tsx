@@ -14,7 +14,7 @@ type Props = {
 export default function ItemRow({ item }: Props) {
     const { acquiredItems, acquireItem, unacquireItem } = useBuildsStore(
         useShallow((state) => ({
-            acquiredItems: state.acquiredItems,
+            acquiredItems: state.getSaveAcquiredItems(),
             acquireItem: state.acquireItem,
             unacquireItem: state.unacquireItem,
         })),

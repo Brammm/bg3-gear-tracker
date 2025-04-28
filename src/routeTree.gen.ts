@@ -10,85 +10,104 @@
 
 // Import Routes
 
-import { Route as rootRoute } from "./routes/__root";
-import { Route as AllImport } from "./routes/all";
-import { Route as IndexImport } from "./routes/index";
+import { Route as rootRoute } from './routes/__root'
+import { Route as SyncImport } from './routes/sync'
+import { Route as AllImport } from './routes/all'
+import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
+const SyncRoute = SyncImport.update({
+  id: '/sync',
+  path: '/sync',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AllRoute = AllImport.update({
-    id: "/all",
-    path: "/all",
-    getParentRoute: () => rootRoute,
-} as any);
+  id: '/all',
+  path: '/all',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
-    id: "/",
-    path: "/",
-    getParentRoute: () => rootRoute,
-} as any);
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module "@tanstack/react-router" {
-    interface FileRoutesByPath {
-        "/": {
-            id: "/";
-            path: "/";
-            fullPath: "/";
-            preLoaderRoute: typeof IndexImport;
-            parentRoute: typeof rootRoute;
-        };
-        "/all": {
-            id: "/all";
-            path: "/all";
-            fullPath: "/all";
-            preLoaderRoute: typeof AllImport;
-            parentRoute: typeof rootRoute;
-        };
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
     }
+    '/all': {
+      id: '/all'
+      path: '/all'
+      fullPath: '/all'
+      preLoaderRoute: typeof AllImport
+      parentRoute: typeof rootRoute
+    }
+    '/sync': {
+      id: '/sync'
+      path: '/sync'
+      fullPath: '/sync'
+      preLoaderRoute: typeof SyncImport
+      parentRoute: typeof rootRoute
+    }
+  }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-    "/": typeof IndexRoute;
-    "/all": typeof AllRoute;
+  '/': typeof IndexRoute
+  '/all': typeof AllRoute
+  '/sync': typeof SyncRoute
 }
 
 export interface FileRoutesByTo {
-    "/": typeof IndexRoute;
-    "/all": typeof AllRoute;
+  '/': typeof IndexRoute
+  '/all': typeof AllRoute
+  '/sync': typeof SyncRoute
 }
 
 export interface FileRoutesById {
-    __root__: typeof rootRoute;
-    "/": typeof IndexRoute;
-    "/all": typeof AllRoute;
+  __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/all': typeof AllRoute
+  '/sync': typeof SyncRoute
 }
 
 export interface FileRouteTypes {
-    fileRoutesByFullPath: FileRoutesByFullPath;
-    fullPaths: "/" | "/all";
-    fileRoutesByTo: FileRoutesByTo;
-    to: "/" | "/all";
-    id: "__root__" | "/" | "/all";
-    fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/all' | '/sync'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/all' | '/sync'
+  id: '__root__' | '/' | '/all' | '/sync'
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-    IndexRoute: typeof IndexRoute;
-    AllRoute: typeof AllRoute;
+  IndexRoute: typeof IndexRoute
+  AllRoute: typeof AllRoute
+  SyncRoute: typeof SyncRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-    IndexRoute: IndexRoute,
-    AllRoute: AllRoute,
-};
+  IndexRoute: IndexRoute,
+  AllRoute: AllRoute,
+  SyncRoute: SyncRoute,
+}
 
 export const routeTree = rootRoute
-    ._addFileChildren(rootRouteChildren)
-    ._addFileTypes<FileRouteTypes>();
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
@@ -97,7 +116,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/all"
+        "/all",
+        "/sync"
       ]
     },
     "/": {
@@ -105,6 +125,9 @@ export const routeTree = rootRoute
     },
     "/all": {
       "filePath": "all.tsx"
+    },
+    "/sync": {
+      "filePath": "sync.tsx"
     }
   }
 }
