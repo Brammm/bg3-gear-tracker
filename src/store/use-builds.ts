@@ -32,6 +32,11 @@ interface BuildsState {
     getSaveBuilds: () => [Build, ...Build[]];
     getSaveAcquiredItems: () => string[];
     getSaveSelectedBuild: () => Build;
+    importBuilds: (
+        save: string,
+        builds: [Build, ...Build[]],
+        acquiredItems: string[],
+    ) => void;
 }
 
 const defaultBuild: Build = {
@@ -54,10 +59,10 @@ export const useBuildsStore = create<BuildsState>()(
             builds: [defaultBuild],
             acquiredItems: [],
             selectedBuildIndex: 0,
-            selectBuild: (index: number) => {
+            selectBuild: (index) => {
                 set(() => ({ selectedBuildIndex: index }));
             },
-            addSave: (name: string) => {
+            addSave: (name) => {
                 if (get().saves[name]) {
                     return;
                 }
@@ -71,7 +76,7 @@ export const useBuildsStore = create<BuildsState>()(
                     state.selectedBuildIndex = 0;
                 });
             },
-            deleteSave: (name: string) =>
+            deleteSave: (name) =>
                 set((state) => {
                     delete state.saves[name];
                     if (Object.keys(state.saves).length === 0) {
@@ -81,7 +86,7 @@ export const useBuildsStore = create<BuildsState>()(
                     state.selectedSave = Object.keys(state.saves).at(-1)!;
                     state.selectedBuildIndex = 0;
                 }),
-            openSave: (name?: string) => {
+            openSave: (name) => {
                 set(() => ({ selectedSave: name, selectedBuildIndex: 0 }));
             },
             addBuild: (name) => {
@@ -94,12 +99,12 @@ export const useBuildsStore = create<BuildsState>()(
                         state.saves[state.selectedSave].builds.length - 1;
                 });
             },
-            renameBuild: (index: number, name: string) => {
+            renameBuild: (index, name) => {
                 set((state) => {
                     state.saves[state.selectedSave].builds[index].name = name;
                 });
             },
-            removeBuild: (index: number) => {
+            removeBuild: (index) => {
                 set((state) => {
                     state.saves[state.selectedSave].builds.splice(index, 1);
                     if (
@@ -176,6 +181,20 @@ export const useBuildsStore = create<BuildsState>()(
                 get().saves[get().selectedSave].builds[
                     get().selectedBuildIndex
                 ],
+            importBuilds: (save, builds, acquiredItems) => {
+                set((state) => {
+                    state.saves[save] = {
+                        builds: [
+                            ...(state.saves[save]?.builds || []),
+                            ...builds,
+                        ],
+                        acquiredItems: [
+                            ...(state.saves[save]?.acquiredItems || []),
+                            ...acquiredItems,
+                        ],
+                    };
+                });
+            },
         })),
         {
             name: "bg3-gear-tracker",
