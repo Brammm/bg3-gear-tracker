@@ -10,10 +10,10 @@ export default function CharacterOverview() {
     const { acquiredItems, acquireItem, unacquireItem, rawItems } =
         useBuildsStore(
             useShallow((state) => ({
-                acquiredItems: state.acquiredItems,
+                acquiredItems: state.getSaveAcquiredItems(),
                 acquireItem: state.acquireItem,
                 unacquireItem: state.unacquireItem,
-                rawItems: state.builds[state.selectedBuildIndex].items,
+                rawItems: state.getSaveSelectedBuild().items,
             })),
         );
 

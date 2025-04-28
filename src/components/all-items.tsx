@@ -4,9 +4,9 @@ import { useShallow } from "zustand/shallow";
 import { items } from "../data/items";
 import { locations } from "../data/locations";
 import { useBuildsStore } from "../store/use-builds";
+import { fuzzyIncludes } from "../util";
 import Button from "./button.tsx";
 import ItemRow, { type ItemWithBuilds } from "./item-row.tsx";
-import { fuzzyIncludes } from '../util';
 
 type SortKey = "name" | "location" | "type" | "builds";
 type SortDirection = "asc" | "desc";
@@ -18,7 +18,7 @@ export default function AllItems() {
 
     const { builds } = useBuildsStore(
         useShallow((state) => ({
-            builds: state.builds,
+            builds: state.getSaveBuilds(),
         })),
     );
 
@@ -63,9 +63,13 @@ export default function AllItems() {
                 if (!filter) {
                     return true;
                 }
-                
-                return fuzzyIncludes(item.name, filter) || !item.location || fuzzyIncludes(item.location, filter)
-        });
+
+                return (
+                    fuzzyIncludes(item.name, filter) ||
+                    !item.location ||
+                    fuzzyIncludes(item.location, filter)
+                );
+            });
 
         uniqueItemList.sort((a, b) => {
             // Use item property for other sort keys
@@ -117,7 +121,7 @@ export default function AllItems() {
     );
 
     return (
-        <div className="p-4">
+        <>
             <h2 className="text-xl font-title mb-4">All Unique Items Used</h2>
             <div className="flex items-center gap-2 mb-4">
                 <input
@@ -161,6 +165,6 @@ export default function AllItems() {
                     No items added to any build yet.
                 </p>
             )}
-        </div>
+        </>
     );
 }

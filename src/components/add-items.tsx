@@ -4,9 +4,9 @@ import { useShallow } from "zustand/shallow";
 import { equipment } from "../data/equipment";
 import { items } from "../data/items";
 import { useBuildsStore } from "../store/use-builds";
+import { fuzzyIncludes } from "../util";
 import Button from "./button";
 import ItemName from "./item-name";
-import { fuzzyIncludes } from '../util';
 
 type Filter = {
     name: string;
@@ -22,7 +22,7 @@ const defaultFilter: Filter = {
 export default function AddItems() {
     const { rawItems, addItem, removeItem } = useBuildsStore(
         useShallow((state) => ({
-            rawItems: state.builds[state.selectedBuildIndex].items,
+            rawItems: state.getSaveSelectedBuild().items,
             addItem: state.addItem,
             removeItem: state.removeItem,
         })),

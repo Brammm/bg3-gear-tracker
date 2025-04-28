@@ -1,27 +1,36 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { Analytics } from "@vercel/analytics/react";
-import { Link } from "../components/link.tsx";
+import { LayoutList, RefreshCw, Users } from "lucide-react";
+import { Link } from "../components/link";
+import SaveSelection from "../components/save-selection.tsx";
 
 export const Route = createRootRoute({
     component: () => (
         <>
             <nav className="bg-gray-dark">
-                <div className="max-w-5xl px-4 py-4 md:px-0 mx-auto lg:flex justify-between">
+                <div className="max-w-5xl px-4 py-4 md:px-0 mx-auto lg:flex lg:justify-between lg:items-center">
                     <h1 className="font-title text-primary text-2xl">
                         Gear Tracker for Baldur's Gate 3
                     </h1>
-                    <div className="flex gap-x-4">
-                        <Link to="/" className="[&.active]:font-bold">
-                            Home
-                        </Link>{" "}
-                        <Link to="/all" className="[&.active]:font-bold">
-                            All items
-                        </Link>
-                    </div>
+                    <SaveSelection />
                 </div>
             </nav>
             <div className="max-w-5xl px-4 md:px-0 mx-auto mt-4">
+                <div className="flex gap-x-4 mb-4">
+                    <Link to="/" className="[&.active]:font-bold">
+                        <Users className="size-4 mr-2" />
+                        Builds
+                    </Link>
+                    <Link to="/all" className="[&.active]:font-bold">
+                        <LayoutList className="size-4 mr-2" />
+                        All items
+                    </Link>
+                    <Link to="/sync" className="[&.active]:font-bold">
+                        <RefreshCw className="size-4 mr-2" />
+                        Import/export
+                    </Link>
+                </div>
                 <Outlet />
                 <footer className="mt-8 text-neutral-500 text-sm flex items-center justify-center">
                     Made by{" "}

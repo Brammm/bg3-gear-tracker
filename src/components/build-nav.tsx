@@ -13,6 +13,7 @@ import {
     Plus,
     X,
 } from "lucide-react";
+import { useShallow } from "zustand/shallow";
 import { type Build, useBuildsStore } from "../store/use-builds";
 import Button from "./button";
 
@@ -20,13 +21,23 @@ export default function BuildNav() {
     const {
         builds,
         addBuild,
+        selectedBuild,
         selectBuild,
         selectedBuildIndex,
         renameBuild,
         removeBuild,
-    } = useBuildsStore();
+    } = useBuildsStore(
+        useShallow((state) => ({
+            builds: state.getSaveBuilds(),
+            addBuild: state.addBuild,
+            selectedBuild: state.getSaveSelectedBuild(),
+            selectBuild: state.selectBuild,
+            selectedBuildIndex: state.selectedBuildIndex,
+            renameBuild: state.renameBuild,
+            removeBuild: state.removeBuild,
+        })),
+    );
 
-    const selected = builds[selectedBuildIndex];
     const setSelected = (build: Build) => {
         selectBuild(builds.indexOf(build));
     };
@@ -34,9 +45,11 @@ export default function BuildNav() {
     const selectPrevious = () => {
         selectBuild(selectedBuildIndex - 1);
     };
+
     const selectNext = () => {
         selectBuild(selectedBuildIndex + 1);
     };
+
     const handleAdd = () => {
         const name = prompt("Enter name", `Build ${builds.length + 1}`);
         if (!name) {
@@ -71,11 +84,15 @@ export default function BuildNav() {
                 >
                     <ChevronLeft />
                 </Button>
-                <Listbox value={selected} onChange={setSelected}>
+                <Listbox value={selectedBuild} onChange={setSelected}>
                     <div className="relative grow md:grow-0 md:w-64">
                         <ListboxButton className="grid w-full cursor-default grid-cols-1 rounded-md bg-gray-darker py-1.5 pl-3 pr-2 text-left text-text outline outline-1 -outline-offset-1 outline-neutral-700 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6">
                             <span className="col-start-1 row-start-1 truncate pr-6">
-                                {selected.name}
+                                {selectedBuild ? (
+                                    selectedBuild.name
+                                ) : (
+                                    <i>No builds yet</i>
+                                )}
                             </span>
                             <ChevronsUpDown
                                 aria-hidden="true"
